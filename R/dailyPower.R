@@ -1,10 +1,10 @@
 #' @title Integrates periodical power values
 #'
-#' @description Given a \code{data.frame} holding power values (W)  measured of forecasted at date/time values in column \code{value}, the function integrates them into total values (kW).
+#' Given a \code{data.frame} holding power values (W)  measured of forecasted at date/time values in column \code{value}, the function integrates them into total values (kW).
 #' This is a function to be invoked on groups of hourly power data on a day level.
 #' Integration is performed by summing up area of trapezia formed by consecutive power values. Height of trapezia is given by the time lag between two power values, its bases are given by the two consecutive power values.
 #' @param dayData a \code{data.frame} holding \code{time} and ay least 1 \code{pot} column
-#' @return a summary \code{data.frame} o total power bound with columns from \code{daydata} whose name start with "year"
+#' @return a summary \code{data.frame} of total power bound with columns from \code{daydata} whose name start with "year"
 #' @export
 #' @author Marco Bascietto \email{marco@@bascietto.name}
 dailyPower <- function(dayData) {

@@ -1,42 +1,39 @@
-\name{meteopv-package}
-\alias{meteopv-package}
-\alias{meteopv}
 \docType{package}
-\title{
-What the package does (short line)
-~~ package title ~~
-}
+\name{meteopv-package}
+\alias{meteopv}
+\alias{meteopv-package}
+\title{Assessment of the position of the centre of mass of trees}
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+  The centre of mass is a crucial data for arborists in
+  order to consolidate a tree using steel or dynamic
+  cables. Given field-recorded data on branchiness of a
+  tree, the package: \itemize{ \item{computes and plots the
+  centre of mass of the tree itself} \item{simulates the
+  shift in CM position as branches are pruned}
+  \item{computes branches slenderness coefficient in order
+  to aid the arborist identify potentially dangerous
+  branches} \item{computes the force acting on a ground
+  plinth and its best position relating to the tree centre
+  of mass, should the tree need to be stabilized by a steel
+  cable} } The tree stem is ideally sectioned in logs. The
+  weight of tree components is assessed based on \itemize{
+  \item the sum of volume of stem logs \item the sum of
+  branches biomass }
 }
-\details{
-\tabular{ll}{
-Package: \tab meteopv\cr
-Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2012-11-11\cr
-License: \tab What license is it under?\cr
-}
-~~ An overview of how to use the package, including the ~~
-~~ most important functions ~~
+\note{
+  \bold{Branch biomass} is computed by allometric equations
+  relating its fresh weight (wood + leaves) to its diameter
+  at point of insertion on the stem. \bold{Log biomass} is
+  computed by converting its volume to #' A sample
+  \code{.CSV} file is provided to guide through data
+  filling in the field
 }
 \author{
-Who wrote it
-
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
+  Marco Bascietto \email{marco@bascietto.name}
 }
 \references{
-~~ Literature or other references for background information ~~
+  Source code is hosted at GitHub
+  (\url{http://mbask.github.com/meteopv/})
 }
-~~ Optionally other standard keywords, one per line, ~~
-~~ from file KEYWORDS in the R documentation directory ~~
-\keyword{ package }
-\seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
-}
-\examples{
-~~ simple examples of the most important functions ~~
-}
+\keyword{package}
+

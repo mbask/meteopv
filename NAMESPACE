@@ -1,1 +1,6 @@
-exportPattern("^[[:alpha:]]+")
+export(append.csv)
+export(dailyPower)
+export(scrapeMeteo)
+import(lubridate)
+import(RCurl)
+import(XML)
