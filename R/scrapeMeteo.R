@@ -2,6 +2,7 @@
 #' 
 #' 
 #' \code{enel.it} does not provide any API. Meteorological parameters, including temperature and irradiance, are scraped from its website. Therefore even slight changes to \code{HTML} code may break the code.
+#' A forged POST request is sent to \code{dettaglio_ajax.php}. The request includes a fake cookie, the code for the town and the date for the forecast to be looked up.
 #' The website provides 8 forecasts of 12 variables a day:
 #' \enumerate{
 #'  \item "Temperatura:" (\emph{Air temperature}) [\eqn{˚C}]
@@ -21,8 +22,8 @@
 #' @note Photovoltaic panel efficiency and temperature estimation needs air temperature and irradiance variables.
 #' 
 #' @param location integer code linked to a geographical location in Enel DB. Check \url{meteo.enel.it} to get the code for your town or city
-#' @param date forecast date, defaults to today date. Currently unused.
-#' @param webAddress the \code{http} address where meteorological data is to be scraped from. Defaults to \url{http://meteo.enel.it/dettagli/}
+#' @param dates a list of forecast dates, defaults to a list of 1 element (today date).
+#' @param webAddress the \code{http} address where meteorological data is to be scraped from. Defaults to \url{http://meteo.enel.it}
 #' @param timeOfDayNum how many times a day forecasts are provided. Defaults to 8, \emph{i.e.} every 3 hours.
 #' @param variableNum how many variables each forects provide. Defaults to 12.
 #' @return a \code{data.frame} of 3 columns: \code{time}, \code{variable}, \code{value}
@@ -55,8 +56,6 @@ scrapeMeteo <- function(
       , style = "POST"
     )
     
-    
-    #script <- getURL(paste0(webAddress, location))
     doc <- htmlParse(script)
     
     # date to be looked up is transformed in POSIXct
@@ -79,5 +78,4 @@ scrapeMeteo <- function(
       )
     }    
   })
-  
 }

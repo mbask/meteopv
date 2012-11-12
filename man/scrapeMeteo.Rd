@@ -2,18 +2,21 @@
 \alias{scrapeMeteo}
 \title{Scrape meteorological data from \url{meteo.enel.it}}
 \usage{
-  scrapeMeteo(location,
-    webAddress = "http://meteo.enel.it/dettagli/",
-    timeOfDayNum = 8, variableNum = 12)
+  scrapeMeteo(location, dates = list(Sys.Date()),
+    webAddress = "http://meteo.enel.it", timeOfDayNum = 8,
+    variableNum = 12)
 }
 \arguments{
   \item{location}{integer code linked to a geographical
   location in Enel DB. Check \url{meteo.enel.it} to get the
   code for your town or city}
 
+  \item{dates}{a list of forecast dates, defaults to a list
+  of 1 element (today date).}
+
   \item{webAddress}{the \code{http} address where
   meteorological data is to be scraped from. Defaults to
-  \url{http://meteo.enel.it/dettagli/}}
+  \url{http://meteo.enel.it}}
 
   \item{timeOfDayNum}{how many times a day forecasts are
   provided. Defaults to 8, \emph{i.e.} every 3 hours.}
@@ -29,23 +32,28 @@
   \code{enel.it} does not provide any API. Meteorological
   parameters, including temperature and irradiance, are
   scraped from its website. Therefore even slight changes
-  to \code{HTML} code may break the code. The website
+  to \code{HTML} code may break the code. A forged POST
+  request is sent to \code{dettaglio_ajax.php}. The request
+  includes a fake cookie, the code for the town and the
+  date for the forecast to be looked up. The website
   provides 8 forecasts of 12 variables a day: \enumerate{
   \item "Temperatura:" (\emph{Air temperature}) [\eqn{˚C}]
-  \item "Situazione:" (\emph{Current weather}) \item
-  "Precipitazione:" (\emph{Precipitation}) [{"Assenti /
-  Molto deboli" | "Deboli" | "Moderate" | "Abbondanti"}]
-  \item "Direzione del vento:" (\emph{Wind direction})
-  [{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE"
-  | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" |
-  "NNO"}] \item "Velocità del vento (m/s):" (\emph{Wind
-  speed}) [\eqn{m/s}] \item "Temperatura con vento (C°):"
-  (\emph{Wind-corrected air temperature}) [\eqn{˚C}] \item
-  "Calore (C°):" (\emph{Heat}) [\eqn{˚C}] \item "Umidità
-  relativa (%):" (\emph{Relative humidity}) [\eqn{\%}]
-  \item "Visibilità (m):" (\emph{Visibility}) [\eqn{m}]
-  \item "Pressione (mbar):" (\emph{Ait pressure})
-  [\eqn{mbar}] \item "Variazione della pressione:"
+  \item "Situazione:" (\emph{Current weather}), this is
+  presented as a graphical icon on the web page, no textual
+  info is scraped \item "Precipitazione:"
+  (\emph{Precipitation}) [{"Assenti / Molto deboli" |
+  "Deboli" | "Moderate" | "Abbondanti"}] \item "Direzione
+  del vento:" (\emph{Wind direction}) [{"N" | "NNE" | "NE"
+  | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO"
+  | "OSO" | "O" | "ONO" | "NO" | "NNO"}]; each wind class
+  is 11.25\eqn{°} wide.  \item "Velocità del vento (m/s):"
+  (\emph{Wind speed}) [\eqn{m/s}] \item "Temperatura con
+  vento (C°):" (\emph{Wind-corrected air temperature})
+  [\eqn{˚C}] \item "Calore (C°):" (\emph{Heat}) [\eqn{˚C}]
+  \item "Umidità relativa (%):" (\emph{Relative humidity})
+  [\eqn{\%}] \item "Visibilità (m):" (\emph{Visibility})
+  [\eqn{m}] \item "Pressione (mbar):" (\emph{Air pressure})
+  [\eqn{hPa}] \item "Variazione della pressione:"
   (\emph{Pressure trend}) [{"-2" | "-1" | "0" | "1" | "2"}]
   \item "Irraggiamento (W/mq):" (\emph{Irradiance})
   [\eqn{W/m^2}] }
