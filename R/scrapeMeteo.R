@@ -29,8 +29,8 @@ scrapeMeteo <- function(
   data <- lubridate::ymd(data)
   
   measures <- data.frame(
-    # 0.4/timeOfDayNum = 24/timeOfDayNum*60 eg seconds between 2 consecutive forecasts
-    time       = rep(seq(data, by = 0.4/timeOfDayNum, length.out = timeOfDayNum), each = variableNum) # replica 12 volte ciascuna delle 8 occorrenze della data, ciascuna di queste incrementata di 3 ore dalle 00:00 alle 21:00 
+    # time is a POSIXct class holding the time of each forecast. Forecasts are provided `timeOfDayNum` times each day. Time lag in seconds between forecasts is 24/timeOfDayNum*60 (eg 0.4/timeOfDayNum). Each forecast provides `variableNum` variables.
+    time       = rep(seq(data, by = 0.4/timeOfDayNum, length.out = timeOfDayNum), each = variableNum)
     , variable = trim(xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_title']", xmlValue))
     , value    = trim(xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']", xmlValue))
   )
