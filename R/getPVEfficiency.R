@@ -61,7 +61,6 @@ getPVEfficiency <- function(env.town, cfg) {
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli e per le perdite di carico
     lossesTiltedEPower <- tiltedEPower / (1 + cfg$PVlosses / 100)
     # W/m^2 Potenza termica teorica, assumendo che tutto ciò che non si trasforma in energia elettrica si trasforma in energia termica
-    # QUESTA `E LA EQUAZIONE CRITICA DELLA CONVERSIONE IN CALORE DELL'ENERGIA DI SCARTO
     thermalPower <- G * (1 - eta)
     # W/m^2 Potenza termica corretta per l'inclinazione dei pannelli
     tiltedTPower <- thermalPower * tiltedCorrection 
