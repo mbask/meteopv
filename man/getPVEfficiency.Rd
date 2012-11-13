@@ -63,7 +63,8 @@
   latitude for each location \item \code{tilt} the tilt
   angle of PV cells (\eqn{0^\circ} for an horizontal plane,
   \eqn{90^\circ} for a vertical plane) \item
-  \code{PVlosses} PV system losses in \eqn{[0..1]} }
+  \code{PVlosses} PV system losses in \eqn{\%}, typically
+  around \eqn{30\%} }
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}

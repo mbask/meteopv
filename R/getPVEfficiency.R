@@ -25,7 +25,7 @@
 #' \itemize{
 #'   \item \code{geoCoord} a matrix of two columns: longitude and latitude for each location
 #'   \item \code{tilt} the tilt angle of PV cells (\eqn{0^\circ} for an horizontal plane, \eqn{90^\circ} for a vertical plane)
-#'   \item \code{PVlosses} PV system losses in \eqn{[0..1]}
+#'   \item \code{PVlosses} PV system losses in \eqn{\%}, typically around \eqn{30\%}
 #' }
 #' 
 #' @references F. Roveda, \emph{L'effetto della temperatura sulla efficienza dei moduli fotovoltaici: cosa sapere sul NOCT}, 2011, \url{http://www.energyhunters.it}
@@ -59,7 +59,7 @@ getPVEfficiency <- function(env.town, cfg) {
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli
     #potElettricaIncl     <- potElettrica * inclCorrection
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli e per le perdite di carico
-    #potElettricaInclPerd <- potElettricaIncl / (1 + cfg$PVlosses)
+    #potElettricaInclPerd <- potElettricaIncl / (1 + cfg$PVlosses / 100)
     # W/m^2 Potenza termica teorica, assumendo che tutto ciò che non si trasforma in energia elettrica si trasforma in energia termica
     # QUESTA `E LA EQUAZIONE CRITICA DELLA CONVERSIONE IN CALORE DELL'ENERGIA DI SCARTO
     potTermica     <- irraggiamento * (1 - efficienza)
