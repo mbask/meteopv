@@ -4,7 +4,7 @@ Title: meteopv scrapes meteorological data provides tools to estimate pv cells
     power generation
 Version: 0.1
 Date: 2012-11-13
-Author:Marco Bascietto <{marco@bascietto.name>
+Author: Marco Bascietto <marco@bascietto.name>
 Maintainer: Marco Bascietto <marco@bascietto.name>
 Description: meteopv scrapes meteorological data from http://meteo.enel.it and
     provides simple tools to estimate the generation of electricity and heat
