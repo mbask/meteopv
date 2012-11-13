@@ -6,36 +6,33 @@
 }
 \arguments{
   \item{env.town}{a \code{data.frame} holding a
-  "\code{time}", "\code{place}", "\code{tempEsterna}" and
-  "\code{irraggiamento}"}
+  \code{time}, \code{place}, \code{tempEsterna} and
+  \code{irraggiamento}}
 
   \item{cfg}{a \code{list} holding several cfg infos (to be
   expanded...)}
 }
 \description{
-  Equazioni da "L’effetto della temperatura sull’efficienza
-  dei moduli fotovoltaici: cosa sapere sul NOCT"
-  disponibile su
-  http://www.energyhunters.it/content/l’effetto-della-temperatura-sull’efficienza-dei-moduli-fotovoltaici-cosa-sapere-sul-noct
-  consultato in data 2012/10/09 Diversi modelli sono
-  disponibili per stimare la temperatura di funzionamento
-  delle celle sulla base delle condizioni ambientali, al
-  fine di conoscere l’efficienza effettiva e quindi
-  l’energia realmente producibile dai moduli nel contesto
-  di installazione. Il modello termico piu` semplice ed
-  utilizzato dai produttori di moduli è basato
-  sull’assunzione che sia costante il rapporto tra la
-  differenza di temperatura Tc − Te e l’irraggiamento G a
-  cui `e sottoposta la cella. Questo approccio si dimostra
-  ragionevole per l’Italia, paese in cui, tendenzialmente,
-  l’irraggiamento non subisce variazioni brusche nell’arco
-  della giornata ed `e lecito trascurare l’inerzia termica
-  dei sistemi fotovoltaici. Ricorrendo a questa
-  semplificazione, (Tc − Te) / G = costante dove le
-  temperature sono espresse in °C e l’irraggiamento in
-  W/m2.
+  The relative PV cells efficiency and the energy they can
+  potentially generate.  Several models are available to
+  estimate working temperature of PV cells based on
+  environmental conditions. The simplest thermal model is
+  based on the assumption that the ratio between the
+  difference between cell temperature (Tc) and air
+  temperature (Te) over sun irradiance on the cell (G) is
+  constant: \eqn{\frac{T_c-T_e}{G} \approx k}. This model
+  is reasonable as far as Italy is concerned due to the
+  absence of abrupt changes in irradiance over the course
+  of the day and thermal inertia of PV systems can be
+  neglected.
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
+}
+\references{
+  L’effetto della temperatura sull’efficienza dei moduli
+  fotovoltaici: cosa sapere sul NOCT, 2011,
+  \url{http://www.energyhunters.it/content/l’effetto-della-temperatura-sull’efficienza-dei-moduli-fotovoltaici-cosa-sapere-sul-noct}
+  retrieved on 2012/10/09
 }
 
