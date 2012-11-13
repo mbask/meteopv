@@ -1,11 +1,14 @@
 Package: meteopv
 Type: Package
-Title: meteopv scrapes meteorological data provides tools to estimate pv cells power generation
+Title: meteopv scrapes meteorological data provides tools to estimate pv cells
+    power generation
 Version: 0.1
 Date: 2012-11-11
 Author: Who wrote it
 Maintainer: Marco Bascietto <{marco@bascietto.name>
-Description: meteopv scrapes meteorological data from http://meteo.enel.it and provides simple tools to estimate the generation of electricity and heat (in kW) by photovoltaic systems on a daily basis
+Description: meteopv scrapes meteorological data from http://meteo.enel.it and
+    provides simple tools to estimate the generation of electricity and heat
+    (in kW) by photovoltaic systems on a daily basis
 License: GPL-2
 URL: https://github.com/mbask/meteopv
 Collate:
