@@ -45,26 +45,26 @@ getPVEfficiency <- function(env.town, cfg) {
     # Correzione per l'inclinazione dei pannelli (eq. derivata a naso da me, va verificata)
     inclCorrection      <- sin((tmp.sun[, "height"] + cfg$tilt) * pi / 180)
     # W/m^2 irraggiamento corretto per l'inclinazione dei pannelli
-    #irraggiamentoIncl   <- irraggiamento * inclCorrection
+    irraggiamentoIncl   <- irraggiamento * inclCorrection
     # Temperatura pannello, eq. citata in "L'effetto della temperatura sull’efficienza dei moduli fotovoltaici: cosa sapere sul NOCT"
     tempPannello     <- tempEsterna + ((cfg$NOCT - 20) / 800) * irraggiamento
     # Temperatura pannello inclinato 
-    #tempPannelloIncl <- tempEsterna + ((cfg$NOCT - 20) / 800) * irraggiamentoIncl
+    tempPannelloIncl <- tempEsterna + ((cfg$NOCT - 20) / 800) * irraggiamentoIncl
     # Efficienza, eq. citata in "L'effetto della temperatura sull’efficienza dei moduli fotovoltaici: cosa sapere sul NOCT"
     efficienza      <- (cfg$etaStd / 100 * (1 - cfg$gamma / 100 * (tempPannello - 25)))
     # Efficienza, pannello inclinato
-    #efficienzaIncl  <- (cfg$etaStd / 100 * (1 - cfg$gamma / 100 * (tempPannelloIncl - 25)))
+    efficienzaIncl  <- (cfg$etaStd / 100 * (1 - cfg$gamma / 100 * (tempPannelloIncl - 25)))
     # W/m^2 Potenza elettrica teorica
     potElettrica         <- irraggiamento * efficienza
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli
-    #potElettricaIncl     <- potElettrica * inclCorrection
+    potElettricaIncl     <- potElettrica * inclCorrection
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli e per le perdite di carico
-    #potElettricaInclPerd <- potElettricaIncl / (1 + cfg$PVlosses / 100)
+    potElettricaInclPerd <- potElettricaIncl / (1 + cfg$PVlosses / 100)
     # W/m^2 Potenza termica teorica, assumendo che tutto ciò che non si trasforma in energia elettrica si trasforma in energia termica
     # QUESTA `E LA EQUAZIONE CRITICA DELLA CONVERSIONE IN CALORE DELL'ENERGIA DI SCARTO
     potTermica     <- irraggiamento * (1 - efficienza)
     # W/m^2 Potenza termica corretta per l'inclinazione dei pannelli
-    #potTermicaIncl <- potTermica * inclCorrection 
+    potTermicaIncl <- potTermica * inclCorrection 
   })
   
   return(env.town)
