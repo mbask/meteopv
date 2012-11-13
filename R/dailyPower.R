@@ -17,7 +17,7 @@ dailyPower <- function(dayData) {
     , difftime(time[evenRow], time[oddRow], units = "hours")
     ))
   # powerColumns holds columns of dayData whose name starts with "pot"
-  powerColumns <- grep("^pot", names(dayData), value = TRUE)
+  powerColumns <- grep("[pP]ower$", names(dayData), value = TRUE)
   # preallocate a matrix that will hold aerea of trapezia
   tmp.power <- matrix(
     data = NA
