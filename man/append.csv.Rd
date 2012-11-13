@@ -1,8 +1,6 @@
 \name{append.csv}
 \alias{append.csv}
-\title{Appends data to a CSV file or connection
-
-Calls internally \code{write.table}.}
+\title{Appends data to a CSV file or connection}
 \usage{
   append.csv(x, file = "data/tempIrr.csv")
 }
@@ -14,9 +12,9 @@ Calls internally \code{write.table}.}
   "\code{data/tempIrr.csv}"}
 }
 \description{
-  Appends data to a CSV file or connection
-
-  Calls internally \code{write.table}.
+  \code{x} is appended to a csv file (if it already exists)
+  or written to a new file. Calls internally
+  \code{write.table}.
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
