@@ -11,8 +11,8 @@
   latitude of a single location on earth}
 }
 \value{
-  a matrix of 2 columns, "\code{azimuth}" and
-  "\code{height}" of sun
+  a matrix of 2 columns, \code{azimuth} and \code{height}
+  of sun
 }
 \description{
   It is just a wrapper around maptools::solarpos
