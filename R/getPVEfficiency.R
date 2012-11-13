@@ -17,9 +17,9 @@
 #' }
 #' As for the first set \code{cfg} must hold:
 #' \itemize{
-#'   \item \code{NOCT} Nominal Operating Cell Temperature in \eqn{^\circ}C
-#'   \item \code{etaStd} \eqn{\gamma_{std}} in \eqn{\%}
-#'   \item \code{gamma} \eqn{\gamma} in \eqn{\%}
+#'   \item \code{NOCT} Nominal Operating Cell Temperature in \eqn{^\circ}C, usually around 45\eqn{^\circ}C for mono-crystalline and poly-crystalline Si systems, much lower for amorphous Si systems and Cadmium telluride systems
+#'   \item \code{etaStd} \eqn{\gamma_{std}} in \eqn{\%}, typically around \eqn{15\%}
+#'   \item \code{gamma} \eqn{\gamma} in \eqn{\%}, a positive numeric percentual decrease of power per Celsius degree typically around 0.4--0.5\eqn{\%}
 #' }
 #' As for the second set \code{cfg} must hold:
 #' \itemize{
