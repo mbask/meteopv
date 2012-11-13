@@ -20,19 +20,63 @@
   based on the assumption that the ratio between the
   difference between cell temperature (Tc) and air
   temperature (Te) over sun irradiance on the cell (G) is
-  constant: \eqn{\frac{T_c-T_e}{G} \approx k}. This model
+  constant: \deqn{\frac{T_c-T_e}{G} \approx k}. This model
   is reasonable as far as Italy is concerned due to the
   absence of abrupt changes in irradiance over the course
   of the day and thermal inertia of PV systems can be
-  neglected.
+  neglected. The technical sheets of PV cells provide the
+  NOCT value, that is the working temperature of the PV
+  cell when air temperature is 20 \eqn{^\circ}C, sun
+  irradiance is 800 \eqn{\frac{W}{m^2}} and wind speed is 1
+  \eqn{\frac{m}{s}}. By coupling NOCT (Nominal Operating
+  Cell Temperature) definition and the equation provided by
+  the simple model we can estimate the PV cell temperature:
+  \deqn{T_c = T_e + \frac{NOCT - 20}{800}G} By using
+  \eqn{\gamma}, a power coefficient usually provided by
+  technical sheets, the efficiency of the PV cell can be
+  easily estimated: \deqn{\eta =
+  \eta_{std}(1-\gamma(T_c-T_{c,std}))} where \eqn{\gamma}
+  is the percentual decrease of power per Celsius degree,
+  \eqn{\eta_{std}} is the power coefficient in standard
+  conditions, \eqn{T_{c,std}} is PV cell temperature in
+  standard conditions. A PV cell in standard conditions has
+  \eqn{T_c = 25 ^\circ}C, \eqn{G = 1000 \frac{W}{m^2}},
+  wind speed \eqn{1 \frac{m}{s}}.
+}
+\details{
+  Parameter \code{cfg} is a \code{list} holding those
+  parameters needed to \enumerate{ \item estimate
+  \eqn{T_c}, \eqn{\eta}, \item estimate electrical and
+  thermal power corrected for the cell tilt and for the PV
+  system losses. } As for the first set \code{cfg} must
+  hold: \itemize{ \item \code{NOCT} Nominal Operating Cell
+  Temperature in \eqn{^\circ}C \item
+  \code{effCondStand_eta} \eqn{\gamma_{std}} in \eqn{\%}
+  \item \code{coeffPotenza_gamma} \eqn{\gamma} in \eqn{\%}
+  } As for the second set \code{cfg} must hold: \itemize{
+  \item \code{geoCoord} a matrix of two columns: longitude
+  and latitude for each location \item
+  \code{angoloPannelli} the tilt angle of PV cells
+  (\eqn{0^\circ} horizontal) }
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
 }
 \references{
-  L’effetto della temperatura sull’efficienza dei moduli
-  fotovoltaici: cosa sapere sul NOCT, 2011,
-  \url{http://www.energyhunters.it/content/l'effetto-della-temperatura-sull'efficienza-dei-moduli-fotovoltaici-cosa-sapere-sul-noct}
-  retrieved on 2012/10/09
+  F. Roveda, \emph{L'effetto della temperatura sulla
+  efficienza dei moduli fotovoltaici: cosa sapere sul
+  NOCT}, 2011, \url{http://www.energyhunters.it} retrieved
+  on 2012/10/09
+
+  E. Skoplaki and J.A. Palyvos, \emph{Operating temperature
+  of photovoltaic modules: A survey of pertinent
+  correlations}, 2009, Renewable Energy 34, 1: 23--29.
+
+  W. Maranda and M. Piotrowicz, \emph{Extraction of thermal
+  model parameters for field-installed photovoltaic
+  module}, 2010, 27th International Conference on
+  Microelectronics Proceedings (MIEL) (presented at the
+  2010 27th International Conference on Microelectronics
+  Proceedings (MIEL), IEEE, 2010), 153-156.
 }
 
