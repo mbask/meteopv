@@ -1,5 +1,6 @@
 export(append.csv)
 export(dailyPower)
+export(getPVEfficiency)
 export(getSunCoordinates)
 export(scrapeMeteo)
 import(lubridate)

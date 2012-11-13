@@ -15,6 +15,7 @@ Collate:
     'scrapeMeteo.R'
     'meteopv-package.R'
     'getSunCoordinates.R'
+    'getPVEfficiency.R'
 Imports:
     XML,
     RCurl,
