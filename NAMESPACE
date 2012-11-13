@@ -1,6 +1,8 @@
 export(append.csv)
 export(dailyPower)
+export(getSunCoordinates)
 export(scrapeMeteo)
 import(lubridate)
+import(maptools)
 import(RCurl)
 import(XML)
