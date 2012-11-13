@@ -9,8 +9,8 @@
   \code{time}, \code{place}, \code{tempEsterna} and
   \code{irraggiamento}}
 
-  \item{cfg}{a \code{list} holding several cfg infos (to be
-  expanded...)}
+  \item{cfg}{a \code{list} holding several cfg infos, see
+  Details}
 }
 \description{
   The relative PV cells efficiency and the energy they can
@@ -50,14 +50,15 @@
   thermal power corrected for the cell tilt and for the PV
   system losses. } As for the first set \code{cfg} must
   hold: \itemize{ \item \code{NOCT} Nominal Operating Cell
-  Temperature in \eqn{^\circ}C \item
-  \code{effCondStand_eta} \eqn{\gamma_{std}} in \eqn{\%}
-  \item \code{coeffPotenza_gamma} \eqn{\gamma} in \eqn{\%}
-  } As for the second set \code{cfg} must hold: \itemize{
-  \item \code{geoCoord} a matrix of two columns: longitude
-  and latitude for each location \item
-  \code{angoloPannelli} the tilt angle of PV cells
-  (\eqn{0^\circ} horizontal) }
+  Temperature in \eqn{^\circ}C \item \code{etaStd}
+  \eqn{\gamma_{std}} in \eqn{\%} \item \code{gamma}
+  \eqn{\gamma} in \eqn{\%} } As for the second set
+  \code{cfg} must hold: \itemize{ \item \code{geoCoord} a
+  matrix of two columns: longitude and latitude for each
+  location \item \code{tilt} the tilt angle of PV cells
+  (\eqn{0^\circ} for an horizontal plane, \eqn{90^\circ}
+  for a vertical plane) \item \code{PVlosses} PV system
+  losses in \eqn{[0..1]} }
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
