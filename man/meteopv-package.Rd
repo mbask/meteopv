@@ -2,11 +2,11 @@
 \name{meteopv-package}
 \alias{meteopv}
 \alias{meteopv-package}
-\title{Scraping from the Web the hourly solar irradicance and air temperature to estimate efficiency and energy produced by photovoltaic cells}
+\title{Scraping from the Web the hourly solar irradicance and air temperature to estimate efficiency and energy produced by photovoltaic cell systems.}
 \description{
   Scraping from the Web the hourly solar irradicance and
   air temperature to estimate efficiency and energy
-  produced by photovoltaic cells
+  produced by photovoltaic cell systems.
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
