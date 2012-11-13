@@ -10,12 +10,8 @@ Calls internally \code{write.table}.}
   \item{x}{a \code{data.frame} to be appended to an
   existing CSV file}
 
-  \item{file}{CSV file name. Defaults to
-  \code{data/tempIrr.csv}}
-}
-\value{
-  a \code{data.frame} of 3 columns: \code{time},
-  \code{variable}, \code{value}
+  \item{file}{CSV file name. Default value
+  "\code{data/tempIrr.csv}"}
 }
 \description{
   Appends data to a CSV file or connection
