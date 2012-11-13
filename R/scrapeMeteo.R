@@ -5,13 +5,13 @@
 #' A forged POST request is sent to \code{dettaglio_ajax.php}. The request includes a fake cookie, the code for the town and the date for the forecast to be looked up.
 #' The website provides 8 forecasts of 12 variables a day:
 #' \enumerate{
-#'  \item "Temperatura:" (\emph{Air temperature}) [\eqn{˚C}]
+#'  \item "Temperatura:" (\emph{Air temperature}) [\eqn{^\circ C}]
 #'  \item "Situazione:" (\emph{Current weather}), this is presented as a graphical icon on the web page, no textual info is scraped
 #'  \item "Precipitazione:" (\emph{Precipitation}) [{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti"}]
-#'  \item "Direzione del vento:" (\emph{Wind direction}) [{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"}]; each wind class is 11.25\eqn{°} wide.
+#'  \item "Direzione del vento:" (\emph{Wind direction}) [{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"}]; each wind class is 11.25\eqn{^\circ} wide.
 #'  \item "Velocità del vento (m/s):" (\emph{Wind speed}) [\eqn{m/s}]
-#'  \item "Temperatura con vento (C°):" (\emph{Wind-corrected air temperature}) [\eqn{˚C}]
-#'  \item "Calore (C°):" (\emph{Heat})  [\eqn{˚C}]
+#'  \item "Temperatura con vento (C°):" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
+#'  \item "Calore (C°):" (\emph{Heat})  [\eqn{^\circ C}]
 #'  \item "Umidità relativa (%):" (\emph{Relative humidity}) [\eqn{\%}]
 #'  \item "Visibilità (m):" (\emph{Visibility}) [\eqn{m}]
 #'  \item "Pressione (mbar):" (\emph{Air pressure}) [\eqn{hPa}]

@@ -32,7 +32,7 @@
 \references{
   L’effetto della temperatura sull’efficienza dei moduli
   fotovoltaici: cosa sapere sul NOCT, 2011,
-  \url{http://www.energyhunters.it/content/l’effetto-della-temperatura-sull’efficienza-dei-moduli-fotovoltaici-cosa-sapere-sul-noct}
+  \url{http://www.energyhunters.it/content/l'effetto-della-temperatura-sull'efficienza-dei-moduli-fotovoltaici-cosa-sapere-sul-noct}
   retrieved on 2012/10/09
 }
 
