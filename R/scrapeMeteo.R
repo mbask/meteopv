@@ -9,11 +9,11 @@
 #'  \item "Situazione:" (\emph{Current weather}), this is presented as a graphical icon on the web page, no textual info is scraped
 #'  \item "Precipitazione:" (\emph{Precipitation}) [{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti"}]
 #'  \item "Direzione del vento:" (\emph{Wind direction}) [{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"}]; each wind class is 11.25\eqn{^\circ} wide.
-#'  \item "Velocità del vento (m/s):" (\emph{Wind speed}) [\eqn{m/s}]
-#'  \item "Temperatura con vento (C°):" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
-#'  \item "Calore (C°):" (\emph{Heat})  [\eqn{^\circ C}]
-#'  \item "Umidità relativa (%):" (\emph{Relative humidity}) [\eqn{\%}]
-#'  \item "Visibilità (m):" (\emph{Visibility}) [\eqn{m}]
+#'  \item "Velocita' del vento (m/s):" (\emph{Wind speed}) [\eqn{m/s}]
+#'  \item "Temperatura con vento (C\eqn{^\circ}):" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
+#'  \item "Calore (C\eqn{^\circ}):" (\emph{Heat})  [\eqn{^\circ C}]
+#'  \item "Umidita' relativa (%):" (\emph{Relative humidity}) [\eqn{\%}]
+#'  \item "Visibilita' (m):" (\emph{Visibility}) [\eqn{m}]
 #'  \item "Pressione (mbar):" (\emph{Air pressure}) [\eqn{hPa}]
 #'  \item "Variazione della pressione:" (\emph{Pressure trend}) [{"-2" | "-1" | "0" | "1" | "2"}]
 #'  \item "Irraggiamento (W/mq):" (\emph{Irradiance}) [\eqn{W/m^2}]
