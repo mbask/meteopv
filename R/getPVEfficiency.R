@@ -33,7 +33,7 @@
 #' @references E. Skoplaki and J.A. Palyvos, \emph{Operating temperature of photovoltaic modules: A survey of pertinent correlations}, 2009, Renewable Energy 34, 1: 23--29.
 #' @references W. Maranda and M. Piotrowicz, \emph{Extraction of thermal model parameters for field-installed photovoltaic module}, 2010, 27th International Conference on Microelectronics Proceedings (MIEL) (presented at the 2010 27th International Conference on Microelectronics Proceedings (MIEL), IEEE, 2010), 153-156.
 #'
-#' @param env.town a \code{data.frame} holding a \code{time}, \code{place}, \code{Te} and \code{irraggiamento}
+#' @param env.town a \code{data.frame} holding a \code{time}, \code{place}, \code{Te} and \code{G}
 #' @param cfg a \code{list} holding several cfg infos, see Details
 #' @export
 #' @author Marco Bascietto \email{marco@@bascietto.name}

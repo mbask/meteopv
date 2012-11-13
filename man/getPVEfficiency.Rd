@@ -6,8 +6,7 @@
 }
 \arguments{
   \item{env.town}{a \code{data.frame} holding a
-  \code{time}, \code{place}, \code{tempEsterna} and
-  \code{irraggiamento}}
+  \code{time}, \code{place}, \code{Te} and \code{G}}
 
   \item{cfg}{a \code{list} holding several cfg infos, see
   Details}
