@@ -14,7 +14,7 @@
   a matrix of azimuth and height
 }
 \description{
-  Estimates Sun azimuth and height above a location
+  It is just a wrapper around maptools::solarpos
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
