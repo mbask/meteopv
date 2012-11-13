@@ -1,10 +1,6 @@
 \name{dailyPower}
 \alias{dailyPower}
-\title{Integrates periodical power values
-
-Given a \code{data.frame} holding power values (W)  measured of forecasted at date/time values in column \code{value}, the function integrates them into total values (kW).
-This is a function to be invoked on groups of hourly power data on a day level.
-Integration is performed by summing up area of trapezia formed by consecutive power values. Height of trapezia is given by the time lag between two power values, its bases are given by the two consecutive power values.}
+\title{Integrates periodical power values}
 \usage{
   dailyPower(dayData)
 }
@@ -17,8 +13,6 @@ Integration is performed by summing up area of trapezia formed by consecutive po
   columns from \code{daydata} whose name start with "year"
 }
 \description{
-  Integrates periodical power values
-
   Given a \code{data.frame} holding power values (W)
   measured of forecasted at date/time values in column
   \code{value}, the function integrates them into total

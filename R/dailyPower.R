@@ -1,4 +1,4 @@
-#' @title Integrates periodical power values
+#' Integrates periodical power values
 #'
 #' Given a \code{data.frame} holding power values (W)  measured of forecasted at date/time values in column \code{value}, the function integrates them into total values (kW).
 #' This is a function to be invoked on groups of hourly power data on a day level.
