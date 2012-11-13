@@ -1,4 +1,4 @@
-#' Scraping from the Web the hourly solar irradicance and air temperature to estimate efficiency and energy produced by photovoltaic cells
+#' Scraping from the Web the hourly solar irradicance and air temperature to estimate efficiency and energy produced by photovoltaic cell systems.
 #'
 #' @name meteopv-package
 #' @aliases meteopv
