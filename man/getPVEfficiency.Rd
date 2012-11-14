@@ -26,10 +26,10 @@
   neglected. The technical sheets of PV cells provide the
   NOCT value, that is the working temperature of the PV
   cell when air temperature is 20 \eqn{^\circ}C, sun
-  irradiance is 800 \eqn{\frac{W}{m^2}} and wind speed is 1
-  \eqn{\frac{m}{s}}. By coupling NOCT (Nominal Operating
-  Cell Temperature) definition and the equation provided by
-  the simple model we can estimate the PV cell temperature:
+  irradiance is 800 \eqn{W/m^2} and wind speed is 1
+  \eqn{m/s}. By coupling NOCT (Nominal Operating Cell
+  Temperature) definition and the equation provided by the
+  simple model we can estimate the PV cell temperature:
   \deqn{T_c = T_e + \frac{NOCT - 20}{800}G} By using
   \eqn{\gamma}, a power coefficient usually provided by
   technical sheets, the efficiency of the PV cell can be
@@ -39,8 +39,8 @@
   \eqn{\eta_{std}} is the power coefficient in standard
   conditions, \eqn{T_{c,std}} is PV cell temperature in
   standard conditions. A PV cell in standard conditions has
-  \eqn{T_c = 25 ^\circ}C, \eqn{G = 1000 \frac{W}{m^2}},
-  wind speed \eqn{1 \frac{m}{s}}.
+  \eqn{T_c = 25 ^\circ}C, \eqn{G = 1000 W/m^2}, wind speed
+  \eqn{1 m/s}.
 }
 \details{
   Parameter \code{cfg} is a \code{list} holding those

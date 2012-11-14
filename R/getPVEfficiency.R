@@ -3,12 +3,12 @@
 #' The relative PV cells efficiency and the energy they can potentially generate.  Several models are available to estimate working temperature of PV cells based on environmental conditions. 
 #' The simplest thermal model is based on the assumption that the ratio between the difference between cell temperature (Tc) and air temperature (Te) over sun irradiance on the cell (G) is constant:
 #' \deqn{\frac{T_c-T_e}{G} \approx k}. This model is reasonable as far as Italy is concerned due to the absence of abrupt changes in irradiance over the course of the day and thermal inertia of PV systems can be neglected.
-#' The technical sheets of PV cells provide the NOCT value, that is the working temperature of the PV cell when air temperature is 20 \eqn{^\circ}C, sun irradiance is 800 \eqn{\frac{W}{m^2}} and wind speed is 1 \eqn{\frac{m}{s}}.
+#' The technical sheets of PV cells provide the NOCT value, that is the working temperature of the PV cell when air temperature is 20 \eqn{^\circ}C, sun irradiance is 800 \eqn{W/m^2} and wind speed is 1 \eqn{m/s}.
 #' By coupling NOCT (Nominal Operating Cell Temperature) definition and the equation provided by the simple model we can estimate the PV cell temperature:
 #' \deqn{T_c = T_e + \frac{NOCT - 20}{800}G}
 #' By using \eqn{\gamma}, a power coefficient usually provided by technical sheets, the efficiency of the PV cell can be easily estimated:
 #' \deqn{\eta = \eta_{std}(1-\gamma(T_c-T_{c,std}))}
-#' where \eqn{\gamma} is the percentual decrease of power per Celsius degree, \eqn{\eta_{std}} is the power coefficient in standard conditions, \eqn{T_{c,std}} is PV cell temperature in standard conditions. A PV cell in standard conditions has \eqn{T_c = 25 ^\circ}C, \eqn{G = 1000 \frac{W}{m^2}}, wind speed \eqn{1 \frac{m}{s}}. 
+#' where \eqn{\gamma} is the percentual decrease of power per Celsius degree, \eqn{\eta_{std}} is the power coefficient in standard conditions, \eqn{T_{c,std}} is PV cell temperature in standard conditions. A PV cell in standard conditions has \eqn{T_c = 25 ^\circ}C, \eqn{G = 1000 W/m^2}, wind speed \eqn{1 m/s}. 
 #' 
 #' Parameter \code{cfg} is a \code{list} holding those parameters needed to
 #' \enumerate{
