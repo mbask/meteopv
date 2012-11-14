@@ -72,7 +72,7 @@ getPVEfficiency <- function(env.town, cfg) {
     # W/m^2 Potenza elettrica teorica
     electricPower    <- G * eta
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli
-    tiltedEPower     <- ElectricPower * tiltedCorrection
+    tiltedEPower     <- electricPower * tiltedCorrection
     # W/m^2 Potenza elettrica corretta per l'inclinazione dei pannelli e per le perdite di carico
     lossesTiltedEPower <- tiltedEPower / (1 + cfg$PVlosses / 100)
     # W/m^2 Potenza termica teorica, assumendo che tutto ciò che non si trasforma in energia elettrica si trasforma in energia termica
