@@ -41,22 +41,25 @@
   [\eqn{^\circ C}] \item "Situazione:" (\emph{Current
   weather}), this is presented as a graphical icon on the
   web page, no textual info is scraped \item
-  "Precipitazione:" (\emph{Precipitation}) [{"Assenti /
-  Molto deboli" | "Deboli" | "Moderate" | "Abbondanti"}]
+  "Precipitazione:" (\emph{Precipitation}) [\{"Assenti /
+  Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" |
+  "Forti" | "Molto forti"\}] according to these classes of
+  precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} |
+  \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
   \item "Direzione del vento:" (\emph{Wind direction})
-  [{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE"
-  | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" |
-  "NNO"}]; each wind class is 11.25\eqn{^\circ} wide.
+  [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" |
+  "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" |
+  "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
   \item "Velocita' del vento (m/s):" (\emph{Wind speed})
   [\eqn{m/s}] \item "Temperatura con vento
   (C\eqn{^\circ}):" (\emph{Wind-corrected air temperature})
   [\eqn{^\circ C}] \item "Calore (C\eqn{^\circ}):"
   (\emph{Heat}) [\eqn{^\circ C}] \item "Umidita' relativa
-  (%):" (\emph{Relative humidity}) [\eqn{\%}] \item
+  (\eqn{\%}):" (\emph{Relative humidity}) [\eqn{\%}] \item
   "Visibilita' (m):" (\emph{Visibility}) [\eqn{m}] \item
   "Pressione (mbar):" (\emph{Air pressure}) [\eqn{hPa}]
   \item "Variazione della pressione:" (\emph{Pressure
-  trend}) [{"-2" | "-1" | "0" | "1" | "2"}] \item
+  trend}) [\{"-2" | "-1" | "0" | "1" | "2"\}] \item
   "Irraggiamento (W/mq):" (\emph{Irradiance}) [\eqn{W/m^2}]
   }
 }
