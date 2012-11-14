@@ -24,3 +24,7 @@ Imports:
     RCurl,
     lubridate,
     maptools
+Suggests:
+    ggplot2,
+    plyr,
+    reshape2
