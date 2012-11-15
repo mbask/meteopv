@@ -69,11 +69,10 @@
 }
 \examples{
 \dontrun{
-library(lubridate)
 # Scrapes today and tomorrow meteorological data for 4 italian towns
 places = c(Roma = 170094, Nepi = 170158, Bolzano = 172858, Siracusa = 172506)
 scrapeDate <- Sys.Date()
-lapply(places, function(place) {measures <- scrapeMeteo(place, dates = list(scrapeDate, scrapeDate + days(1)))})
+lapply(places, function(place) {measures <- scrapeMeteo(place, dates = list(scrapeDate, scrapeDate + lubridate::days(1)))})
 }
 }
 \author{

@@ -4,9 +4,8 @@
 \alias{meteopv-package}
 \title{Scraping from the Web the hourly solar irradicance and air temperature to estimate efficiency and energy produced by photovoltaic cell systems.}
 \description{
-  Scraping from the Web the hourly solar irradicance and
-  air temperature to estimate efficiency and energy
-  produced by photovoltaic cell systems.
+  A simpe example of meteorological data elaboration is
+  given in \code{\link{pvRome}} dataset.
 }
 \author{
   Marco Bascietto \email{marco@bascietto.name}
