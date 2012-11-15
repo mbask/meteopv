@@ -10,9 +10,8 @@
 \examples{
 library(reshape2)
 library(lubridate)
-library(plyr)
 library(ggplot2)
-
+data(pvRome)
 cfg <- list(
   gamma              = 0.4 # \%/degree Celsius A typical polycristalline cell power coefficient
   , etaStd           = 15  # \%  A typical polycristalline cell efficiency
@@ -27,8 +26,11 @@ cfg <- list(
     , dimnames = list(c("Rome"))
   )
 )
-data(pvRome)
+# We only need air temperature and sun irradiance in order to estimate PV efficiency
+pvRome <- pvRome[pvRome$variable \%in\% c("Temperatura:", "Irraggiamento (W/mq):"),]
 pvRome <- within(pvRome, {
+  # Strip unused factors
+  variable <- factor(variable)
   # Convert value to from factor to numeric
   value    <- as.numeric(as.character(value))
   # Rename and convert variable to factor
