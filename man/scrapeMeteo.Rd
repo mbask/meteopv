@@ -50,18 +50,17 @@
   [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" |
   "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" |
   "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
-  \item "Velocita' del vento (m/s):" (\emph{Wind speed})
+  \item "Velocita del vento (m/s):" (\emph{Wind speed})
   [\eqn{m/s}] \item "Temperatura con vento
   (C\eqn{^\circ}):" (\emph{Wind-corrected air temperature})
-  [\eqn{^\circ C}] \item "Calore (C\eqn{^\circ}):"
-  (\emph{Heat}) [\eqn{^\circ C}] \item "Umidita' relativa
-  (\eqn{\%}):" (\emph{Relative humidity}) [\eqn{\%}] \item
-  "Visibilita' (m):" (\emph{Visibility}) [\eqn{m}] \item
-  "Pressione (mbar):" (\emph{Air pressure}) [\eqn{hPa}]
-  \item "Variazione della pressione:" (\emph{Pressure
-  trend}) [\{"-2" | "-1" | "0" | "1" | "2"\}] \item
-  "Irraggiamento (W/mq):" (\emph{Irradiance}) [\eqn{W/m^2}]
-  }
+  [\eqn{^\circ C}] \item "Calore (C):" (\emph{Heat})
+  [\eqn{^\circ C}] \item "Umidita relativa (\eqn{\%}):"
+  (\emph{Relative humidity}) [\eqn{\%}] \item "Visibilita
+  (m):" (\emph{Visibility}) [\eqn{m}] \item "Pressione
+  (mbar):" (\emph{Air pressure}) [\eqn{hPa}] \item
+  "Variazione della pressione:" (\emph{Pressure trend})
+  [\{"-2" | "-1" | "0" | "1" | "2"\}] \item "Irraggiamento
+  (W/mq):" (\emph{Irradiance}) [\eqn{W/m^2}] }
 }
 \note{
   Photovoltaic panel efficiency and temperature estimation
