@@ -78,10 +78,11 @@ scrapeMeteo <- function(
       # time is a POSIXct class holding the time of each forecast. Forecasts are provided `timeOfDayNum` times each day. Time lag in seconds between forecasts is 24*60*60/timeOfDayNum (eg 86400/timeOfDayNum). Each forecast provides `variableNum` variables.
       times     <- rep(seq(date, by = 86400/timeOfDayNum, length.out = timeOfDayNum), each = variableNum)
       # Sanitize variable to strip degree symbol and replace accented a with non accented a to make it more portable
-      variables <- trim(sub("[\u00B0]", "", sub("[\u00E0]", "a", content_valore_title)))
+      variables <- sub("[\u00B0]", "", sub("[\u00E0]", "a", content_valore_title))
+      
       data.frame(
         time       = times
-        , variable = variables
+        , variable = trim(variables)
         , value    = trim(content_valore_result)
       )
     }    
