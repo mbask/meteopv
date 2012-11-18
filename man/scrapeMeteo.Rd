@@ -51,12 +51,12 @@
   "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ}
   wide.  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}] \item
   "WTe" (\emph{Wind-corrected air temperature})
-  [\eqn{^\circ C}] \item "Heat" (\emph{Heat}) [\eqn{^\circ
-  C}] \item "Rh" (\emph{Relative humidity}) [\eqn{\%}]
-  \item "V" (\emph{Visibility}) [\eqn{m}] \item "P"
-  (\emph{Air pressure}) [\eqn{hPa}] \item "Pt"
-  (\emph{Pressure trend}) [\{"-2" | "-1" | "0" | "1" |
-  "2"\}] \item "G" (\emph{Irradiance}) [\eqn{W/m^2}] }
+  [\eqn{^\circ C}] \item "H" (\emph{Heat}) [\eqn{^\circ C}]
+  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}] \item
+  "V" (\emph{Visibility}) [\eqn{m}] \item "P" (\emph{Air
+  pressure}) [\eqn{hPa}] \item "Pt" (\emph{Pressure trend})
+  [\{"-2" | "-1" | "0" | "1" | "2"\}] \item "G"
+  (\emph{Irradiance}) [\eqn{W/m^2}] }
 }
 \note{
   Photovoltaic panel efficiency and temperature estimation

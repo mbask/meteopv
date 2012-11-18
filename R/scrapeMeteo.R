@@ -11,7 +11,7 @@
 #'  \item "Wd" (\emph{Wind direction}) [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
 #'  \item "WTe" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
-#'  \item "Heat" (\emph{Heat})  [\eqn{^\circ C}]
+#'  \item "H" (\emph{Heat})  [\eqn{^\circ C}]
 #'  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}]
 #'  \item "V" (\emph{Visibility}) [\eqn{m}]
 #'  \item "P" (\emph{Air pressure}) [\eqn{hPa}]
@@ -82,7 +82,7 @@ scrapeMeteo <- function(
 
       data.frame(
         time       = times
-        , variable = c("Te", "WeatherTheme", "P", "Wd", "Ws", "WTe", "Heat", "Rh", "V", "P", "Pt", "G")
+        , variable = c("Te", "WeatherTheme", "P", "Wd", "Ws", "WTe", "H", "Rh", "V", "P", "Pt", "G")
         , value    = trim(content_valore_result)
       )
     }    
