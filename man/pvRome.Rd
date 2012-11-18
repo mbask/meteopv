@@ -27,14 +27,12 @@ cfg <- list(
   )
 )
 # We only need air temperature and sun irradiance in order to estimate PV efficiency
-pvRome <- pvRome[pvRome$variable \%in\% c("Temperatura:", "Irraggiamento (W/mq):"),]
+pvRome <- pvRome[pvRome$variable \%in\% c("Te", "G"),]
 pvRome <- within(pvRome, {
   # Strip unused factors
   variable <- factor(variable)
   # Convert value to from factor to numeric
   value    <- as.numeric(as.character(value))
-  # Rename and convert variable to factor
-  variable <- factor(ifelse(variable == "Temperatura:", "Te", "G"))
   # Convert time from factor to POSIXct class
   time <- ymd_hms(time, tz = "CET")
   # Add location info
