@@ -5,18 +5,18 @@
 #' A forged POST request is sent to \code{dettaglio_ajax.php}. The request includes a fake cookie, the code for the town and the date for the forecast to be looked up.
 #' The website provides 8 forecasts of 12 variables a day:
 #' \enumerate{
-#'  \item "Temperatura:" (\emph{Air temperature}) [\eqn{^\circ C}]
-#'  \item "Situazione:" (\emph{Current weather}), this is presented as a graphical icon on the web page, no textual info is scraped
-#'  \item "Precipitazione:" (\emph{Precipitation}) [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti" | "Molto forti"\}] according to these classes of precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
-#'  \item "Direzione del vento:" (\emph{Wind direction}) [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
-#'  \item "Velocita del vento (m/s):" (\emph{Wind speed}) [\eqn{m/s}]
-#'  \item "Temperatura con vento (C\eqn{^\circ}):" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
-#'  \item "Calore (C):" (\emph{Heat})  [\eqn{^\circ C}]
-#'  \item "Umidita relativa (\eqn{\%}):" (\emph{Relative humidity}) [\eqn{\%}]
-#'  \item "Visibilita (m):" (\emph{Visibility}) [\eqn{m}]
-#'  \item "Pressione (mbar):" (\emph{Air pressure}) [\eqn{hPa}]
-#'  \item "Variazione della pressione:" (\emph{Pressure trend}) [\{"-2" | "-1" | "0" | "1" | "2"\}]
-#'  \item "Irraggiamento (W/mq):" (\emph{Irradiance}) [\eqn{W/m^2}]
+#'  \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
+#'  \item "Weather theme" (\emph{Current weather}), this is presented as a graphical icon on the web page, no textual info is scraped
+#'  \item "P" (\emph{Precipitation}) [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti" | "Molto forti"\}] according to these classes of precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
+#'  \item "Wd" (\emph{Wind direction}) [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
+#'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
+#'  \item "WTe" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
+#'  \item "Heat" (\emph{Heat})  [\eqn{^\circ C}]
+#'  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}]
+#'  \item "V" (\emph{Visibility}) [\eqn{m}]
+#'  \item "P" (\emph{Air pressure}) [\eqn{hPa}]
+#'  \item "Pt" (\emph{Pressure trend}) [\{"-2" | "-1" | "0" | "1" | "2"\}]
+#'  \item "G" (\emph{Irradiance}) [\eqn{W/m^2}]
 #' }
 #' 
 #' @note Photovoltaic panel efficiency and temperature estimation needs air temperature and irradiance variables.
