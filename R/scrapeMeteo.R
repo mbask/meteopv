@@ -68,11 +68,11 @@ scrapeMeteo <- function(
     date <- lubridate::ymd(as.character(date), tz = "CET")
     
     # extract variable names and values
-    content_valore_title  <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_title']", xmlValue)
+    #content_valore_title  <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_title']", xmlValue)
     content_valore_result <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']", xmlValue)
     
     # Check whether forecasts for the desired date is available, if not return NULL
-    if (is.null(content_valore_title)) {
+    if (is.null(content_valore_result)) {
       NULL
     } else {
       # time is a POSIXct class holding the time of each forecast. Forecasts are provided `timeOfDayNum` times each day. Time lag in seconds between forecasts is 24*60*60/timeOfDayNum (eg 86400/timeOfDayNum). Each forecast provides `variableNum` variables.
