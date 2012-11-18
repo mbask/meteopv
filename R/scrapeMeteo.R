@@ -25,7 +25,7 @@
 #' @param dates a list of forecast dates, defaults to a list of 1 element (today date).
 #' @param webAddress the \code{http} address where meteorological data is to be scraped from. Defaults to \url{http://meteo.enel.it}
 #' @param timeOfDayNum how many times a day forecasts are provided. Defaults to 8, \emph{i.e.} every 3 hours.
-#' @param variableNum how many variables each forects provide. Defaults to 12.
+#' @param variableLabels a vector of 12 variable names, defaults to the labels provided in Description section
 #' @return a \code{data.frame} of 3 columns: \code{time}, \code{variable}, \code{value}
 #' @export
 #' @import lubridate
@@ -43,7 +43,7 @@ scrapeMeteo <- function(
   , dates = list(Sys.Date())
   , webAddress = "http://meteo.enel.it"
   , timeOfDayNum = 8
-  , variableNum  = 12
+  , variableLabels  = c("Te", "WeatherTheme", "P", "Wd", "Ws", "WTe", "H", "Rh", "V", "P", "Pt", "G")
   ) {
   
   curlSetOpt(
@@ -76,13 +76,13 @@ scrapeMeteo <- function(
       NULL
     } else {
       # time is a POSIXct class holding the time of each forecast. Forecasts are provided `timeOfDayNum` times each day. Time lag in seconds between forecasts is 24*60*60/timeOfDayNum (eg 86400/timeOfDayNum). Each forecast provides `variableNum` variables.
-      times     <- rep(seq(date, by = 86400/timeOfDayNum, length.out = timeOfDayNum), each = variableNum)
+      times     <- rep(seq(date, by = 86400/timeOfDayNum, length.out = timeOfDayNum), each = length(variableLabels))
       # Sanitize variable to strip degree symbol and replace accented a with non accented a to make it more portable
       #variables <- sub("[\u00C2\u00B0]", "", sub("[\u00E0]", "a", content_valore_title))
 
       data.frame(
         time       = times
-        , variable = c("Te", "WeatherTheme", "P", "Wd", "Ws", "WTe", "H", "Rh", "V", "P", "Pt", "G")
+        , variable = variableLabels
         , value    = trim(content_valore_result)
       )
     }    
