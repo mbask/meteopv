@@ -6,16 +6,16 @@
 #' The website provides 8 forecasts of 12 variables a day:
 #' \enumerate{
 #'  \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
-#'  \item "Weather theme" (\emph{Current weather}), this is presented as a graphical icon on the web page, no textual info is scraped
-#'  \item "P" (\emph{Precipitation}) [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti" | "Molto forti"\}] according to these classes of precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
-#'  \item "Wd" (\emph{Wind direction}) [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
+#'  \item "Weather theme" (\emph{Current weather}), one of \itemize{ \item "Sun" \item "Burning sun" \item "Scattered clouds" \item "Broken clouds" \item "Broken clouds and rain" \item "Broken clouds, rain and snow" \item "Broken clouds and light snow" \item "Overcast clouds" \item "Overcast clouds and rain" \item "Overcast clouds and rain" \item "Overcast clouds and snow" \item "Overcast clouds, snow and rain" \item "Overcast clouds, thunderstorms" \item "Overcast clouds and mist" \item "Fog" \item "Broken clouds, rain, chance of thunderstorms" \item "Overcast clouds and heavy rain" \item "Overcast clouds and heavy snow"}
+#'  \item "P" (\emph{Precipitation}), one of [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti" | "Molto forti"\}] according to these classes of precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
+#'  \item "Wd" (\emph{Wind direction}), one of [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
 #'  \item "Tw" (\emph{Wind-corrected air temperature (\emph{ie} Windchill)}) [\eqn{^\circ C}]
 #'  \item "H" (\emph{Heat})  [\eqn{^\circ C}]
 #'  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}]
 #'  \item "V" (\emph{Visibility}) [\eqn{m}]
 #'  \item "P" (\emph{Air pressure}) [\eqn{hPa}]
-#'  \item "Pt" (\emph{Pressure trend}) [\{"-2" | "-1" | "0" | "1" | "2"\}]
+#'  \item "Pt" (\emph{Pressure trend}), one of [\{"-2" | "-1" | "0" | "1" | "2"\}]
 #'  \item "G" (\emph{Irradiance}) [\eqn{W/m^2}]
 #' }
 #' 
@@ -55,13 +55,35 @@ scrapeMeteo <- function(
   )
   
   lapply(dates, function(date) {
+    
+    # the list of keys associated to meteorological conditions
+    dayInfo <- list(
+      "1" = "Sun"
+      , "2" = "Burning sun"
+      , "3" = "Scattered clouds"
+      , "4" = "Broken clouds"
+      , "5" = "Broken clouds and rain"
+      , "6" = "Broken clouds, rain and snow"
+      , "7" = "Broken clouds and light snow"
+      , "8" = "Overcast clouds"
+      , "9" = "Overcast clouds and rain"
+      , "10" = "Overcast clouds and rain"
+      , "11" = "Overcast clouds and snow"
+      , "12" = "Overcast clouds, snow and rain"
+      , "13" = "Overcast clouds, thunderstorms"
+      , "14" = "Overcast clouds and mist"
+      , "15" = "Fog"
+      , "16" = "Broken clouds, rain, chance of thunderstorms"
+      , "17" = "Overcast clouds and heavy rain"
+      , "18" = "Overcast clouds and heavy snow"
+    )
+
     script <- postForm(
       uri = paste(webAddress, "dettaglio_ajax.php", sep = "/")
       , p = location
       , d = date
       , style = "POST"
     )
-    
     doc <- htmlParse(script)
     
     # date to be looked up is transformed in POSIXct
@@ -79,7 +101,16 @@ scrapeMeteo <- function(
       times     <- rep(seq(date, by = 86400/timeOfDayNum, length.out = timeOfDayNum), each = length(variableLabels))
       # Sanitize variable to strip degree symbol and replace accented a with non accented a to make it more portable
       #variables <- sub("[\u00C2\u00B0]", "", sub("[\u00E0]", "a", content_valore_title))
-
+      # get the file path for the meorological condition
+      dayIcon <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']/img", xmlAttrs)
+      # split file path into slices delimited by "/" and get the last (10th) slice, 
+      # the key to the meteorological condition
+      dayIcon <- lapply(dayIcon, function(x) sub(".png", "", strsplit(x, "/")[[1]][[10]]))
+      # position of the meteorological conditions in the result list
+      iconPosition <- seq(2, by = 12, length(content_valore_result))
+      # replace the meteorological conditions in the proper positions in the result list
+      content_valore_result[iconPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
+      
       data.frame(
         time       = times
         , variable = variableLabels

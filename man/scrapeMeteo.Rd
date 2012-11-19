@@ -38,25 +38,35 @@
   date for the forecast to be looked up. The website
   provides 8 forecasts of 12 variables a day: \enumerate{
   \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
-  \item "Weather theme" (\emph{Current weather}), this is
-  presented as a graphical icon on the web page, no textual
-  info is scraped \item "P" (\emph{Precipitation})
-  [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" |
-  "Abbondanti" | "Forti" | "Molto forti"\}] according to
-  these classes of precipitation (\eqn{mmH_2O}):
-  [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} |
-  \eqn{<15} | \eqn{\geq 15} \}] \item "Wd" (\emph{Wind
-  direction}) [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" |
-  "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" |
-  "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ}
-  wide.  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}] \item
-  "Tw" (\emph{Wind-corrected air temperature (\emph{ie}
-  Windchill)}) [\eqn{^\circ C}] \item "H" (\emph{Heat})
-  [\eqn{^\circ C}] \item "Rh" (\emph{Relative humidity})
-  [\eqn{\%}] \item "V" (\emph{Visibility}) [\eqn{m}] \item
-  "P" (\emph{Air pressure}) [\eqn{hPa}] \item "Pt"
-  (\emph{Pressure trend}) [\{"-2" | "-1" | "0" | "1" |
-  "2"\}] \item "G" (\emph{Irradiance}) [\eqn{W/m^2}] }
+  \item "Weather theme" (\emph{Current weather}), one of
+  \itemize{ \item "Sun" \item "Burning sun" \item
+  "Scattered clouds" \item "Broken clouds" \item "Broken
+  clouds and rain" \item "Broken clouds, rain and snow"
+  \item "Broken clouds and light snow" \item "Overcast
+  clouds" \item "Overcast clouds and rain" \item "Overcast
+  clouds and rain" \item "Overcast clouds and snow" \item
+  "Overcast clouds, snow and rain" \item "Overcast clouds,
+  thunderstorms" \item "Overcast clouds and mist" \item
+  "Fog" \item "Broken clouds, rain, chance of
+  thunderstorms" \item "Overcast clouds and heavy rain"
+  \item "Overcast clouds and heavy snow"} \item "P"
+  (\emph{Precipitation}), one of [\{"Assenti / Molto
+  deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti"
+  | "Molto forti"\}] according to these classes of
+  precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} |
+  \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
+  \item "Wd" (\emph{Wind direction}), one of [\{"N" | "NNE"
+  | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO"
+  | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind
+  class is 11.25\eqn{^\circ} wide.  \item "Ws" (\emph{Wind
+  speed}) [\eqn{m/s}] \item "Tw" (\emph{Wind-corrected air
+  temperature (\emph{ie} Windchill)}) [\eqn{^\circ C}]
+  \item "H" (\emph{Heat}) [\eqn{^\circ C}] \item "Rh"
+  (\emph{Relative humidity}) [\eqn{\%}] \item "V"
+  (\emph{Visibility}) [\eqn{m}] \item "P" (\emph{Air
+  pressure}) [\eqn{hPa}] \item "Pt" (\emph{Pressure
+  trend}), one of [\{"-2" | "-1" | "0" | "1" | "2"\}] \item
+  "G" (\emph{Irradiance}) [\eqn{W/m^2}] }
 }
 \note{
   Photovoltaic panel efficiency and temperature estimation
