@@ -10,7 +10,7 @@
 #'  \item "P" (\emph{Precipitation}) [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti" | "Molto forti"\}] according to these classes of precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
 #'  \item "Wd" (\emph{Wind direction}) [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
-#'  \item "WTe" (\emph{Wind-corrected air temperature}) [\eqn{^\circ C}]
+#'  \item "Tw" (\emph{Wind-corrected air temperature (\emph{ie} Windchill)}) [\eqn{^\circ C}]
 #'  \item "H" (\emph{Heat})  [\eqn{^\circ C}]
 #'  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}]
 #'  \item "V" (\emph{Visibility}) [\eqn{m}]
@@ -43,7 +43,7 @@ scrapeMeteo <- function(
   , dates = list(Sys.Date())
   , webAddress = "http://meteo.enel.it"
   , timeOfDayNum = 8
-  , variableLabels  = c("Te", "WeatherTheme", "P", "Wd", "Ws", "WTe", "H", "Rh", "V", "P", "Pt", "G")
+  , variableLabels  = c("Te", "WeatherTheme", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
   ) {
   
   curlSetOpt(

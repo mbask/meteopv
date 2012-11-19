@@ -4,7 +4,7 @@
 \usage{
   scrapeMeteo(location, dates = list(Sys.Date()),
     webAddress = "http://meteo.enel.it", timeOfDayNum = 8,
-    variableLabels = c("Te", "WeatherTheme", "P", "Wd", "Ws", "WTe", "H", "Rh", "V", "P", "Pt", "G"))
+    variableLabels = c("Te", "WeatherTheme", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G"))
 }
 \arguments{
   \item{location}{integer code linked to a geographical
@@ -50,13 +50,13 @@
   "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" |
   "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ}
   wide.  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}] \item
-  "WTe" (\emph{Wind-corrected air temperature})
-  [\eqn{^\circ C}] \item "H" (\emph{Heat}) [\eqn{^\circ C}]
-  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}] \item
-  "V" (\emph{Visibility}) [\eqn{m}] \item "P" (\emph{Air
-  pressure}) [\eqn{hPa}] \item "Pt" (\emph{Pressure trend})
-  [\{"-2" | "-1" | "0" | "1" | "2"\}] \item "G"
-  (\emph{Irradiance}) [\eqn{W/m^2}] }
+  "Tw" (\emph{Wind-corrected air temperature (\emph{ie}
+  Windchill)}) [\eqn{^\circ C}] \item "H" (\emph{Heat})
+  [\eqn{^\circ C}] \item "Rh" (\emph{Relative humidity})
+  [\eqn{\%}] \item "V" (\emph{Visibility}) [\eqn{m}] \item
+  "P" (\emph{Air pressure}) [\eqn{hPa}] \item "Pt"
+  (\emph{Pressure trend}) [\{"-2" | "-1" | "0" | "1" |
+  "2"\}] \item "G" (\emph{Irradiance}) [\eqn{W/m^2}] }
 }
 \note{
   Photovoltaic panel efficiency and temperature estimation
