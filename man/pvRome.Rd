@@ -54,13 +54,13 @@ pvRome.m <- melt(
   , variable.name = "variable"
 )
 
-TePlot <- ggplot(pvRome.m[grep("^Te$", pvRome.m$variable), ]) +
+TePlot <- ggplot(pvRome.m[pvRome.m$variable == "Te", ]) +
   geom_line(aes(x = dayHourOfMonth, y = value, color = yearMonth, group = yearMonth)) +
-  labs(list(title = "Hourly temperature", y = "Temperature (degree C)", x = "Day of month")) +
+  labs(list(title = "Hourly air temperature", y = "Temperature (degree C)", x = "Day of month")) +
   guides(colour = guide_legend("Temperature")) +
   theme_bw()
-TcPlot <- TePlot \%+\% pvRome.m[grep("^Tc$", pvRome.m$variable), ]
-
+TcPlot <- TePlot \%+\% pvRome.m[pvRome.m$variable == "Tc", ] +
+  labs(title = "Hourly PV cell temperature")
 plot(TePlot)
 plot(TcPlot)
 }
