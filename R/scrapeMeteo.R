@@ -7,15 +7,15 @@
 #' \enumerate{
 #'  \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
 #'  \item "Weather theme" (\emph{Current weather}), one of \itemize{ \item "Sun" \item "Burning sun" \item "Scattered clouds" \item "Broken clouds" \item "Broken clouds and rain" \item "Broken clouds, rain and snow" \item "Broken clouds and light snow" \item "Overcast clouds" \item "Overcast clouds and rain" \item "Overcast clouds and rain" \item "Overcast clouds and snow" \item "Overcast clouds, snow and rain" \item "Overcast clouds, thunderstorms" \item "Overcast clouds and mist" \item "Fog" \item "Broken clouds, rain, chance of thunderstorms" \item "Overcast clouds and heavy rain" \item "Overcast clouds and heavy snow"}
-#'  \item "P" (\emph{Precipitation}), one of [\{"Assenti / Molto deboli" | "Deboli" | "Moderate" | "Abbondanti" | "Forti" | "Molto forti"\}] according to these classes of precipitation (\eqn{mmH_2O}): [\{\eqn{<0.1} | \eqn{<2} | \eqn{<6} | \eqn{<10} | \eqn{<15} | \eqn{\geq 15} \}]
-#'  \item "Wd" (\emph{Wind direction}), one of [\{"N" | "NNE" | "NE" | "ENE" | "E" | "ESE" | "SE" | "SSE" | "S" | "SSO" | "SO" | "OSO" | "O" | "ONO" | "NO" | "NNO"\}]; each wind class is 11.25\eqn{^\circ} wide.
+#'  \item "P" (\emph{Precipitation}), one of \itemize{ \item "Assenti / Molto deboli" \item "Deboli" \item "Moderate" \item "Abbondanti" \item "Forti" \item "Molto forti"} according to these classes of precipitation (\eqn{mmH_2O}): \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
+#'  \item "Wd" (\emph{Wind direction}), classes of 11.25\eqn{^\circ} each. One of \itemize{ \item "N" \item "NNE" \item "NE" \item "ENE" \item "E" \item "ESE" \item "SE" \item "SSE" \item "S" \item "SSO" \item "SO" \item "OSO" \item "O" \item "ONO" \item "NO" \item "NNO"}
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
 #'  \item "Tw" (\emph{Wind-corrected air temperature (\emph{ie} Windchill)}) [\eqn{^\circ C}]
 #'  \item "H" (\emph{Heat})  [\eqn{^\circ C}]
 #'  \item "Rh" (\emph{Relative humidity}) [\eqn{\%}]
 #'  \item "V" (\emph{Visibility}) [\eqn{m}]
 #'  \item "P" (\emph{Air pressure}) [\eqn{hPa}]
-#'  \item "Pt" (\emph{Pressure trend}), one of [\{"-2" | "-1" | "0" | "1" | "2"\}]
+#'  \item "Pt" (\emph{Pressure trend}), one of \itemize{ \item "-2" \item "-1" \item "0" \item "1" \item "2" }
 #'  \item "G" (\emph{Irradiance}) [\eqn{W/m^2}]
 #' }
 #' 
