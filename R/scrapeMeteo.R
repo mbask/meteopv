@@ -103,9 +103,9 @@ scrapeMeteo <- function(
       #variables <- sub("[\u00C2\u00B0]", "", sub("[\u00E0]", "a", content_valore_title))
       # get the file path for the meorological condition
       dayIcon <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']/img", xmlAttrs)
-      # split file path into slices delimited by "/" and get the last (10th) slice, 
-      # the key to the meteorological condition
-      dayIcon <- lapply(dayIcon, function(x) sub(".png", "", strsplit(x, "/")[[1]][[10]]))
+      # extract the key to the meteorological condition based on a RE that matches all 1 or 2 digit numbers, assuming
+      # there is only one in the URL
+      dayIcon <- sapply(dayIcon, function(x) regmatches(x, gregexpr("[1]?[0-9]", x)))
       # position of the meteorological conditions in the result list
       iconPosition <- seq(2, by = 12, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
