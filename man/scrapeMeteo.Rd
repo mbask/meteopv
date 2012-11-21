@@ -50,13 +50,13 @@
   "Fog" \item "Broken clouds, rain, chance of
   thunderstorms" \item "Overcast clouds and heavy rain"
   \item "Overcast clouds and heavy snow"} \item "P"
-  (\emph{Precipitation}), one of \itemize{ \item "Assenti /
-  Molto deboli" \item "Deboli" \item "Moderate" \item
-  "Abbondanti" \item "Forti" \item "Molto forti"} according
-  to these classes of precipitation (\eqn{mmH_2O}):
-  \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6}
-  \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
-  \item "Wd" (\emph{Wind direction}), classes of
+  (\emph{Precipitation}), one of \itemize{ \item "No rain"
+  \item "Drizzle" \item "Light rain" \item "Moderate rain"
+  \item "Heavy rain" \item "Very heavy rain"} according to
+  these classes of precipitation (\eqn{mmH_2O}): \itemize{
+  \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item
+  \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} } \item
+  "Wd" (\emph{Wind direction}), classes of
   11.25\eqn{^\circ} each. One of \itemize{ \item "N" \item
   "NNE" \item "NE" \item "ENE" \item "E" \item "ESE" \item
   "SE" \item "SSE" \item "S" \item "SSO" \item "SO" \item

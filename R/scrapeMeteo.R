@@ -7,7 +7,7 @@
 #' \enumerate{
 #'  \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
 #'  \item "Mc" (\emph{Current weather conditions}), one of \itemize{ \item "Sun" \item "Burning sun" \item "Scattered clouds" \item "Broken clouds" \item "Broken clouds and rain" \item "Broken clouds, rain and snow" \item "Broken clouds and light snow" \item "Overcast clouds" \item "Overcast clouds and rain" \item "Overcast clouds and rain" \item "Overcast clouds and snow" \item "Overcast clouds, snow and rain" \item "Overcast clouds, thunderstorms" \item "Overcast clouds and mist" \item "Fog" \item "Broken clouds, rain, chance of thunderstorms" \item "Overcast clouds and heavy rain" \item "Overcast clouds and heavy snow"}
-#'  \item "P" (\emph{Precipitation}), one of \itemize{ \item "Assenti / Molto deboli" \item "Deboli" \item "Moderate" \item "Abbondanti" \item "Forti" \item "Molto forti"} according to these classes of precipitation (\eqn{mmH_2O}): \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
+#'  \item "P" (\emph{Precipitation}), one of \itemize{ \item "No rain" \item "Drizzle" \item "Light rain" \item "Moderate rain" \item "Heavy rain" \item "Very heavy rain"} according to these classes of precipitation (\eqn{mmH_2O}): \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
 #'  \item "Wd" (\emph{Wind direction}), classes of 11.25\eqn{^\circ} each. One of \itemize{ \item "N" \item "NNE" \item "NE" \item "ENE" \item "E" \item "ESE" \item "SE" \item "SSE" \item "S" \item "SSO" \item "SO" \item "OSO" \item "O" \item "ONO" \item "NO" \item "NNO"}
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
 #'  \item "Tw" (\emph{Wind-corrected air temperature (\emph{ie} Windchill)}) [\eqn{^\circ C}]
@@ -54,6 +54,16 @@ scrapeMeteo <- function(
     )
   )
   
+  variableNum <- length(varibleLabels)
+  pInfo <- list(
+    "Assenti / Molto deboli" = "No rain"         # < 0.1 mm
+    , "Deboli"               = "Drizzle"         # < 2.0 mm
+    , "Moderate"             = "Light rain"      # < 6.0 mm
+    , "Abbondanti"           = "Moderate rain"   # < 10 mm
+    , "Forti"                = "Heavy rain"      # < 15 mm
+    , "Molto forti"          = "Very heavy rain" # >= 15 mm
+  )
+  
   lapply(dates, function(date) {
     
     # the list of keys associated to meteorological conditions
@@ -77,7 +87,6 @@ scrapeMeteo <- function(
       , "17" = "Overcast clouds and heavy rain"
       , "18" = "Overcast clouds and heavy snow"
     )
-    #
 
     script <- postForm(
       uri = paste(webAddress, "dettaglio_ajax.php", sep = "/")
@@ -111,6 +120,9 @@ scrapeMeteo <- function(
       iconPosition <- seq(2, by = 12, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[iconPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
+      
+      pPosition <- seq(3, by = variableNum, length(content_valore_result))
+      content_valore_result[pPosition] <- pInfo[content_valore_result[pPosition]]
       
       data.frame(
         time       = times
