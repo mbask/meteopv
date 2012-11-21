@@ -55,6 +55,27 @@ scrapeMeteo <- function(
   )
   # number of variables
   variableNum <- length(varibleLabels)
+  # the list of keys associated to meteorological conditions
+  dayInfo <- list(
+    "1" = "Sun"
+    , "2" = "Burning sun"
+    , "3" = "Scattered clouds"
+    , "4" = "Broken clouds"
+    , "5" = "Broken clouds and rain"
+    , "6" = "Broken clouds, rain and snow"
+    , "7" = "Broken clouds and light snow"
+    , "8" = "Overcast clouds"
+    , "9" = "Overcast clouds and rain"
+    , "10" = "Overcast clouds and rain"
+    , "11" = "Overcast clouds and snow"
+    , "12" = "Overcast clouds, snow and rain"
+    , "13" = "Overcast clouds, thunderstorms"
+    , "14" = "Overcast clouds and mist"
+    , "15" = "Fog"
+    , "16" = "Broken clouds, rain, chance of thunderstorms"
+    , "17" = "Overcast clouds and heavy rain"
+    , "18" = "Overcast clouds and heavy snow"
+  )
   # precipitation classes
   pInfo <- list(
     "Assenti / Molto deboli" = "No rain"         # < 0.1 mm
@@ -66,29 +87,7 @@ scrapeMeteo <- function(
   )
   
   lapply(dates, function(date) {
-    
-    # the list of keys associated to meteorological conditions
-    dayInfo <- list(
-      "1" = "Sun"
-      , "2" = "Burning sun"
-      , "3" = "Scattered clouds"
-      , "4" = "Broken clouds"
-      , "5" = "Broken clouds and rain"
-      , "6" = "Broken clouds, rain and snow"
-      , "7" = "Broken clouds and light snow"
-      , "8" = "Overcast clouds"
-      , "9" = "Overcast clouds and rain"
-      , "10" = "Overcast clouds and rain"
-      , "11" = "Overcast clouds and snow"
-      , "12" = "Overcast clouds, snow and rain"
-      , "13" = "Overcast clouds, thunderstorms"
-      , "14" = "Overcast clouds and mist"
-      , "15" = "Fog"
-      , "16" = "Broken clouds, rain, chance of thunderstorms"
-      , "17" = "Overcast clouds and heavy rain"
-      , "18" = "Overcast clouds and heavy snow"
-    )
-
+  
     script <- postForm(
       uri = paste(webAddress, "dettaglio_ajax.php", sep = "/")
       , p = location
