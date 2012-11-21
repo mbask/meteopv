@@ -4,7 +4,7 @@
 \usage{
   scrapeMeteo(location, dates = list(Sys.Date()),
     webAddress = "http://meteo.enel.it", timeOfDayNum = 8,
-    variableLabels = c("Te", "Cond", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G"))
+    variableLabels = c("Te", "Mc", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G"))
 }
 \arguments{
   \item{location}{integer code linked to a geographical
@@ -38,7 +38,7 @@
   date for the forecast to be looked up. The website
   provides 8 forecasts of 12 variables a day: \enumerate{
   \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
-  \item "Cond" (\emph{Current weather conditions}), one of
+  \item "Mc" (\emph{Current weather conditions}), one of
   \itemize{ \item "Sun" \item "Burning sun" \item
   "Scattered clouds" \item "Broken clouds" \item "Broken
   clouds and rain" \item "Broken clouds, rain and snow"
