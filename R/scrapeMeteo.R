@@ -6,7 +6,7 @@
 #' The website provides 8 forecasts of 12 variables a day:
 #' \enumerate{
 #'  \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
-#'  \item "Weather theme" (\emph{Current weather}), one of \itemize{ \item "Sun" \item "Burning sun" \item "Scattered clouds" \item "Broken clouds" \item "Broken clouds and rain" \item "Broken clouds, rain and snow" \item "Broken clouds and light snow" \item "Overcast clouds" \item "Overcast clouds and rain" \item "Overcast clouds and rain" \item "Overcast clouds and snow" \item "Overcast clouds, snow and rain" \item "Overcast clouds, thunderstorms" \item "Overcast clouds and mist" \item "Fog" \item "Broken clouds, rain, chance of thunderstorms" \item "Overcast clouds and heavy rain" \item "Overcast clouds and heavy snow"}
+#'  \item "Cond" (\emph{Current weather conditions}), one of \itemize{ \item "Sun" \item "Burning sun" \item "Scattered clouds" \item "Broken clouds" \item "Broken clouds and rain" \item "Broken clouds, rain and snow" \item "Broken clouds and light snow" \item "Overcast clouds" \item "Overcast clouds and rain" \item "Overcast clouds and rain" \item "Overcast clouds and snow" \item "Overcast clouds, snow and rain" \item "Overcast clouds, thunderstorms" \item "Overcast clouds and mist" \item "Fog" \item "Broken clouds, rain, chance of thunderstorms" \item "Overcast clouds and heavy rain" \item "Overcast clouds and heavy snow"}
 #'  \item "P" (\emph{Precipitation}), one of \itemize{ \item "Assenti / Molto deboli" \item "Deboli" \item "Moderate" \item "Abbondanti" \item "Forti" \item "Molto forti"} according to these classes of precipitation (\eqn{mmH_2O}): \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
 #'  \item "Wd" (\emph{Wind direction}), classes of 11.25\eqn{^\circ} each. One of \itemize{ \item "N" \item "NNE" \item "NE" \item "ENE" \item "E" \item "ESE" \item "SE" \item "SSE" \item "S" \item "SSO" \item "SO" \item "OSO" \item "O" \item "ONO" \item "NO" \item "NNO"}
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
@@ -43,7 +43,7 @@ scrapeMeteo <- function(
   , dates = list(Sys.Date())
   , webAddress = "http://meteo.enel.it"
   , timeOfDayNum = 8
-  , variableLabels  = c("Te", "WeatherTheme", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
+  , variableLabels  = c("Te", "Cond", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
   ) {
   
   curlSetOpt(
