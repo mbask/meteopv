@@ -53,8 +53,9 @@ scrapeMeteo <- function(
       , cookie = "WT_FPC=id=94.37.233.237-1330998896.30256024:lv=1352757714639:ss=1352753154118"
     )
   )
-  
+  # number of variables
   variableNum <- length(varibleLabels)
+  # precipitation classes
   pInfo <- list(
     "Assenti / Molto deboli" = "No rain"         # < 0.1 mm
     , "Deboli"               = "Drizzle"         # < 2.0 mm
@@ -121,6 +122,7 @@ scrapeMeteo <- function(
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[iconPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
       
+      # replace precipitation classes terms from italian to english
       pPosition <- seq(3, by = variableNum, length(content_valore_result))
       content_valore_result[pPosition] <- pInfo[content_valore_result[pPosition]]
       
