@@ -108,7 +108,7 @@ scrapeMeteo <- function(
       NULL
     } else {
       # time is a POSIXct class holding the time of each forecast. Forecasts are provided `timeOfDayNum` times each day. Time lag in seconds between forecasts is 24*60*60/timeOfDayNum (eg 86400/timeOfDayNum). Each forecast provides `variableNum` variables.
-      times     <- rep(seq(date, by = 86400/timeOfDayNum, length.out = timeOfDayNum), each = length(variableLabels))
+      times     <- rep(seq(date, by = 86400/timeOfDayNum, length.out = timeOfDayNum), each = variableNum)
       # Sanitize variable to strip degree symbol and replace accented a with non accented a to make it more portable
       #variables <- sub("[\u00C2\u00B0]", "", sub("[\u00E0]", "a", content_valore_title))
       # get the file path for the meorological condition
@@ -117,7 +117,7 @@ scrapeMeteo <- function(
       # there is only one in the URL
       dayIcon <- sapply(dayIcon, function(x) regmatches(x, gregexpr("[1]?[0-9]", x)))
       # position of the meteorological conditions in the result list
-      iconPosition <- seq(2, by = 12, length(content_valore_result))
+      iconPosition <- seq(2, by = variableNum, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[iconPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
       
