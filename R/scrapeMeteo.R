@@ -101,7 +101,7 @@ scrapeMeteo <- function(
     
     # extract variable names and values
     #content_valore_title  <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_title']", xmlValue)
-    content_valore_result <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']", xmlValue)
+    content_valore_result <- trim(xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']", xmlValue))
     
     # Check whether forecasts for the desired date is available, if not return NULL
     if (is.null(content_valore_result)) {
@@ -133,7 +133,7 @@ scrapeMeteo <- function(
       data.frame(
         time       = times
         , variable = variableLabels
-        , value    = trim(content_valore_result)
+        , value    = content_valore_result
       )
     }    
   })
