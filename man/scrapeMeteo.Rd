@@ -59,8 +59,8 @@
   "Wd" (\emph{Wind direction}), classes of
   11.25\eqn{^\circ} each. One of \itemize{ \item "N" \item
   "NNE" \item "NE" \item "ENE" \item "E" \item "ESE" \item
-  "SE" \item "SSE" \item "S" \item "SSO" \item "SO" \item
-  "OSO" \item "O" \item "ONO" \item "NO" \item "NNO"} \item
+  "SE" \item "SSE" \item "S" \item "SSW" \item "SW" \item
+  "WSW" \item "W" \item "WNW" \item "NW" \item "NNW"} \item
   "Ws" (\emph{Wind speed}) [\eqn{m/s}] \item "Tw"
   (\emph{Wind-corrected air temperature (\emph{ie}
   Windchill)}) [\eqn{^\circ C}] \item "H" (\emph{Heat})
