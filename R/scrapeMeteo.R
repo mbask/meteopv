@@ -123,9 +123,10 @@ scrapeMeteo <- function(
       
       # replace precipitation classes terms from italian to english
       rPosition <- rPosition + 1
-      content_valore_result[rPosition] <- pInfo[content_valore_result[rPosition]]
+      pString <- content_valore_result[rPosition]
+      content_valore_result[rPosition] <- sapply(pString, function(x) pInfo[[x]])
       
-      # replace W(est) to O(vest) occurrences in the wind direction classes
+      # replace W(est) in place of O(vest) occurrences in the wind direction classes
       rPosition <- rPosition + 1
       content_valore_result[rPosition] <- gsub("O", "W", content_valore_result[rPosition])
 
