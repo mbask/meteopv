@@ -117,16 +117,17 @@ scrapeMeteo <- function(
       # there is only one in the URL
       dayIcon <- sapply(dayIcon, function(x) regmatches(x, gregexpr("[1]?[0-9]", x)))
       # position of the meteorological conditions in the result list
-      iconPosition <- seq(2, by = variableNum, length(content_valore_result))
+      rPosition <- seq(2, by = variableNum, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
-      content_valore_result[iconPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
+      content_valore_result[rPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
       
       # replace precipitation classes terms from italian to english
-      pPosition <- seq(3, by = variableNum, length(content_valore_result))
-      content_valore_result[pPosition] <- pInfo[content_valore_result[pPosition]]
+      rPosition <- rPosition + 1
+      content_valore_result[rPosition] <- pInfo[content_valore_result[rPosition]]
       
-      wDPosition <- seq(4, by = variableNum, length(content_valore_result))
-      content_valore_result[wDPosition] <- gsub("O", "W", content_valore_result[wDPosition])
+      # replace W(est) to O(vest) occurrences in the wind direction classes
+      rPosition <- rPosition + 1
+      content_valore_result[rPosition] <- gsub("O", "W", content_valore_result[rPosition])
 
       data.frame(
         time       = times
