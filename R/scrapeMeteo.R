@@ -54,7 +54,7 @@ scrapeMeteo <- function(
     )
   )
   # number of variables
-  variableNum <- length(varibleLabels)
+  variableNum <- length(variableLabels)
   # the list of keys associated to meteorological conditions
   dayInfo <- list(
     "1" = "Sun"
