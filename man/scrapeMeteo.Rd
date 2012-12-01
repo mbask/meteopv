@@ -4,7 +4,7 @@
 \usage{
   scrapeMeteo(location, dates = list(Sys.Date()),
     webAddress = "http://meteo.enel.it", timeOfDayNum = 8,
-    variableLabels = c("Te", "Mc", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G"))
+    variableLabels = c("Te", "Mc", "R", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G"))
 }
 \arguments{
   \item{location}{integer code linked to a geographical
@@ -49,7 +49,7 @@
   thunderstorms" \item "Overcast clouds and mist" \item
   "Fog" \item "Broken clouds, rain, chance of
   thunderstorms" \item "Overcast clouds and heavy rain"
-  \item "Overcast clouds and heavy snow"} \item "P"
+  \item "Overcast clouds and heavy snow"} \item "R"
   (\emph{Precipitation}), one of \itemize{ \item "No rain"
   \item "Drizzle" \item "Light rain" \item "Moderate rain"
   \item "Heavy rain" \item "Very heavy rain"} according to

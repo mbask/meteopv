@@ -7,7 +7,7 @@
 #' \enumerate{
 #'  \item "Te" (\emph{Air temperature}) [\eqn{^\circ C}]
 #'  \item "Mc" (\emph{Current weather conditions}), one of \itemize{ \item "Sun" \item "Burning sun" \item "Scattered clouds" \item "Broken clouds" \item "Broken clouds and rain" \item "Broken clouds, rain and snow" \item "Broken clouds and light snow" \item "Overcast clouds" \item "Overcast clouds and rain" \item "Overcast clouds and rain" \item "Overcast clouds and snow" \item "Overcast clouds, snow and rain" \item "Overcast clouds, thunderstorms" \item "Overcast clouds and mist" \item "Fog" \item "Broken clouds, rain, chance of thunderstorms" \item "Overcast clouds and heavy rain" \item "Overcast clouds and heavy snow"}
-#'  \item "P" (\emph{Precipitation}), one of \itemize{ \item "No rain" \item "Drizzle" \item "Light rain" \item "Moderate rain" \item "Heavy rain" \item "Very heavy rain"} according to these classes of precipitation (\eqn{mmH_2O}): \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
+#'  \item "R" (\emph{Precipitation}), one of \itemize{ \item "No rain" \item "Drizzle" \item "Light rain" \item "Moderate rain" \item "Heavy rain" \item "Very heavy rain"} according to these classes of precipitation (\eqn{mmH_2O}): \itemize{ \item \eqn{<0.1} \item \eqn{<2} \item \eqn{<6} \item \eqn{<10} \item \eqn{<15} \item \eqn{\geq 15} }
 #'  \item "Wd" (\emph{Wind direction}), classes of 11.25\eqn{^\circ} each. One of \itemize{ \item "N" \item "NNE" \item "NE" \item "ENE" \item "E" \item "ESE" \item "SE" \item "SSE" \item "S" \item "SSW" \item "SW" \item "WSW" \item "W" \item "WNW" \item "NW" \item "NNW"}
 #'  \item "Ws" (\emph{Wind speed}) [\eqn{m/s}]
 #'  \item "Tw" (\emph{Wind-corrected air temperature (\emph{ie} Windchill)}) [\eqn{^\circ C}]
@@ -43,7 +43,7 @@ scrapeMeteo <- function(
   , dates = list(Sys.Date())
   , webAddress = "http://meteo.enel.it"
   , timeOfDayNum = 8
-  , variableLabels  = c("Te", "Mc", "P", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
+  , variableLabels  = c("Te", "Mc", "R", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
   ) {
   
   curlSetOpt(
