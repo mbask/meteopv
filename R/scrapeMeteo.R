@@ -57,7 +57,7 @@ scrapeMeteo <- function(
   variableNum <- length(variableLabels)
   # the list of keys associated to meteorological conditions
   dayInfo <- list(
-    "1" = "Sun"
+    "1" = "Clear sky"
     , "2" = "Burning sun"
     , "3" = "Scattered clouds"
     , "4" = "Broken clouds"
