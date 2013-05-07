@@ -34,7 +34,7 @@ pvRome <- within(pvRome, {
   # Convert value to from factor to numeric
   value    <- as.numeric(as.character(value))
   # Convert time from factor to POSIXct class
-  time <- ymd_hms(time, tz = "CET")
+  time <- ymd_hms(as.character(time), tz = "CET")
   # Add location info
   place <- factor("Rome")
 })
