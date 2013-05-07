@@ -45,7 +45,6 @@ scrapeMeteo <- function(
   , timeOfDayNum = 8
   , variableLabels  = c("Te", "Mc", "R", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
   ) {
-  
   curlSetOpt(
     .opts = list(
       referer = paste(webAddress, "dettagli", location, sep = "/")
@@ -95,7 +94,7 @@ scrapeMeteo <- function(
       , style = "POST"
     )
     doc <- htmlParse(script)
-    
+
     # date to be looked up is transformed in POSIXct
     date <- lubridate::ymd(as.character(date), tz = "CET")
     
@@ -117,17 +116,24 @@ scrapeMeteo <- function(
       # there is only one in the URL
       dayIcon <- sapply(dayIcon, function(x) regmatches(x, gregexpr("[1]?[0-9]", x)))
       # position of the meteorological conditions in the result list
-      rPosition <- seq(2, by = variableNum, length(content_valore_result))
+      # e.g. where there is no value in content_valore_result
+      rPosition <- which(content_valore_result == "")
+      # rPosition <- seq(3, by = variableNum, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[rPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
-      
+      variableLabels[rPosition[1]] <- "Mc"
       # replace precipitation classes terms from italian to english
-      rPosition <- rPosition + 1
+      # 2013-05-07: it is a dirty hack since it looks like the position of precipitation classes
+      # varies between the second and third position
+      if (rPosition[1] == 2) 
+        rPosition <- rPosition + 1
+      else
+        rPosition <- rPosition - 1
       pString <- content_valore_result[rPosition]
       content_valore_result[rPosition] <- sapply(pString, function(x) pInfo[[x]])
-      
+      variableLabels[rPosition[1]] <- "R"
       # replace W(est) in place of O(vest) occurrences in the wind direction classes
-      rPosition <- rPosition + 1
+      # rPosition <- seq(4, by = variableNum, length(content_valore_result))
       content_valore_result[rPosition] <- gsub("O", "W", content_valore_result[rPosition])
 
       data.frame(
