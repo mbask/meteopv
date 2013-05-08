@@ -101,7 +101,8 @@ scrapeMeteo <- function(
     # extract variable names and values
     #content_valore_title  <- xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_title']", xmlValue)
     content_valore_result <- trim(xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_result']", xmlValue))
-    
+    content_valore_title <- trim(xpathSApply(doc, "//div[@class='content_valore']/div[@class='content_valore_title']", xmlValue))
+
     # Check whether forecasts for the desired date is available, if not return NULL
     if (is.null(content_valore_result)) {
       NULL
@@ -116,20 +117,13 @@ scrapeMeteo <- function(
       # there is only one in the URL
       dayIcon <- sapply(dayIcon, function(x) regmatches(x, gregexpr("[1]?[0-9]", x)))
       # position of the meteorological conditions in the result list
-      # e.g. where there is no value in content_valore_result
-      rPosition <- which(content_valore_result[1:3] == "")
-      rPosition <- seq(rPosition, by = variableNum, length(content_valore_result))
+      rPosition <- which(content_valore_title == "Situazione:")
       # rPosition <- seq(3, by = variableNum, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[rPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
       variableLabels[rPosition[1]] <- "Mc"
       # replace precipitation classes terms from italian to english
-      # 2013-05-07: it is a dirty hack since it looks like the position of precipitation classes
-      # varies between the second and third position
-      if (rPosition[1] == 2) 
-        rPosition <- rPosition + 1
-      else
-        rPosition <- rPosition - 1
+      rPosition <- which(content_valore_title == "Precipitazione:")
       pString <- content_valore_result[rPosition]
       content_valore_result[rPosition] <- sapply(pString, function(x) pInfo[[x]])
       variableLabels[rPosition[1]] <- "R"
