@@ -117,7 +117,8 @@ scrapeMeteo <- function(
       dayIcon <- sapply(dayIcon, function(x) regmatches(x, gregexpr("[1]?[0-9]", x)))
       # position of the meteorological conditions in the result list
       # e.g. where there is no value in content_valore_result
-      rPosition <- which(content_valore_result == "")
+      rPosition <- which(content_valore_result[1:3] == "")
+      rPosition <- seq(rPosition, by = variableNum, length(content_valore_result))
       # rPosition <- seq(3, by = variableNum, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[rPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
