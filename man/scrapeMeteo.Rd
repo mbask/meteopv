@@ -4,7 +4,7 @@
 \usage{
   scrapeMeteo(location, dates = list(Sys.Date()),
     webAddress = "http://meteo.enel.it", timeOfDayNum = 8,
-    variableLabels = c("Te", "Mc", "R", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G"))
+    variableLabels = c(Te = "Te", Mc = "Mc", R = "R", Wd = "Wd", Ws = "Ws", Tw = "Tw", H = "H", Rh = "Rh", V = "V", P = "P", Pt = "Pt", G = "G"))
 }
 \arguments{
   \item{location}{integer code linked to a geographical
@@ -21,8 +21,9 @@
   \item{timeOfDayNum}{how many times a day forecasts are
   provided. Defaults to 8, \emph{i.e.} every 3 hours.}
 
-  \item{variableLabels}{a vector of 12 variable names,
-  defaults to the labels provided in Description section}
+  \item{variableLabels}{a named vector of 12 variable
+  names, defaults to the labels provided in Description
+  section}
 }
 \value{
   a \code{data.frame} of 3 columns: \code{time},

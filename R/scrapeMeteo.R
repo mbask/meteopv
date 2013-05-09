@@ -25,7 +25,7 @@
 #' @param dates a list of forecast dates, defaults to a list of 1 element (today date).
 #' @param webAddress the \code{http} address where meteorological data is to be scraped from. Defaults to \url{http://meteo.enel.it}
 #' @param timeOfDayNum how many times a day forecasts are provided. Defaults to 8, \emph{i.e.} every 3 hours.
-#' @param variableLabels a vector of 12 variable names, defaults to the labels provided in Description section
+#' @param variableLabels a named vector of 12 variable names, defaults to the labels provided in Description section
 #' @return a \code{data.frame} of 3 columns: \code{time}, \code{variable}, \code{value}
 #' @export
 #' @import lubridate
@@ -43,7 +43,7 @@ scrapeMeteo <- function(
   , dates = list(Sys.Date())
   , webAddress = "http://meteo.enel.it"
   , timeOfDayNum = 8
-  , variableLabels  = c("Te", "Mc", "R", "Wd", "Ws", "Tw", "H", "Rh", "V", "P", "Pt", "G")
+  , variableLabels  = c(Te = "Te", Mc = "Mc", R = "R", Wd = "Wd", Ws = "Ws", Tw = "Tw", H = "H", Rh = "Rh", V = "V", P = "P", Pt = "Pt", G = "G")
   ) {
   curlSetOpt(
     .opts = list(
@@ -121,19 +121,19 @@ scrapeMeteo <- function(
       # rPosition <- seq(3, by = variableNum, length(content_valore_result))
       # replace the meteorological conditions in the proper positions in the result list
       content_valore_result[rPosition] <- sapply(dayIcon, function(x) dayInfo[[x]])
-      variableLabels[rPosition[1]] <- "Mc"
+      variableLabels[rPosition[1]] <- variableLabels["Mc"]
       # replace precipitation classes terms from italian to english
       rPosition <- which(content_valore_title == "Precipitazione:")
       pString <- content_valore_result[rPosition]
       content_valore_result[rPosition] <- sapply(pString, function(x) pInfo[[x]])
-      variableLabels[rPosition[1]] <- "R"
+      variableLabels[rPosition[1]] <- variableLabels["R"]
       # replace W(est) in place of O(vest) occurrences in the wind direction classes
       # rPosition <- seq(4, by = variableNum, length(content_valore_result))
       content_valore_result[rPosition] <- gsub("O", "W", content_valore_result[rPosition])
 
       data.frame(
         time       = times
-        , variable = variableLabels
+        , variable = as.vector(variableLabels)
         , value    = content_valore_result
       )
     }    
