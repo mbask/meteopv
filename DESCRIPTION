@@ -2,8 +2,8 @@ Package: meteopv
 Type: Package
 Title: Tools to scrape meteorological data and to estimate pv cells power
     generation
-Version: 0.5.4
-Date: 2013-05-09
+Version: 0.5.5
+Date: 2014-05-13
 Author: Marco Bascietto <marco@bascietto.name>
 Maintainer: Marco Bascietto <marco@bascietto.name>
 Description: meteopv scrapes meteorological data from http://meteo.enel.it and
