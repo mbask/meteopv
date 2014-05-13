@@ -11,19 +11,10 @@ Description: meteopv scrapes meteorological data from http://meteo.enel.it and
     (in kW) by photovoltaic systems on a daily basis
 License: GPL-2
 URL: https://github.com/mbask/meteopv
-Collate:
-    'append.csv.R'
-    'dailyPower.R'
-    'trim.R'
-    'scrapeMeteo.R'
-    'meteopv-package.R'
-    'getSunCoordinates.R'
-    'getPVEfficiency.R'
 Imports:
     XML,
     RCurl,
-    lubridate,
-    maptools
+    lubridate
 Suggests:
     ggplot2,
     plyr,
