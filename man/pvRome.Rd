@@ -4,7 +4,7 @@
 \alias{pvRome}
 \title{Sun irradiance and air temperature in Rome}
 \description{
-Sun irradiance and air temperature in Rome from October 2012 to November 2012 as scraped daily from \url{meteo.enel.it}.
+Sun irradiance and air temperature in Rome from October 2012 to October 2013 as scraped daily from \url{meteo.enel.it}.
 }
 \examples{
 library(reshape2)
